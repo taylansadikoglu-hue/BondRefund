@@ -3,22 +3,17 @@ export function EmailCapture() {
     <section className="rounded-md border border-blue-100 bg-[var(--soft-blue)] p-5">
       <h2 className="text-xl font-extrabold">Get the free moving checklist</h2>
       <p className="mt-2 text-sm leading-6 text-slate-600">
-        Email capture placeholder. Connect this form to your email platform when you are ready.
+        Want the checklist or spot something we should add? Send us an email and we’ll reply with the latest version.
       </p>
-      <form className="mt-4 flex flex-col gap-3 sm:flex-row">
-        <label className="sr-only" htmlFor="email-checklist">
-          Email address
-        </label>
-        <input
-          id="email-checklist"
-          type="email"
-          placeholder="you@example.com"
-          className="focus-ring min-h-11 flex-1 rounded-md border border-slate-300 px-3"
-        />
-        <button className="focus-ring min-h-11 rounded-md bg-[var(--accent)] px-5 font-bold text-white" type="button">
-          Send checklist
-        </button>
-      </form>
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a
+          className="focus-ring inline-flex min-h-11 items-center justify-center rounded-md bg-[var(--accent)] px-5 font-bold text-white"
+          href="mailto:hello@bondrefund.online?subject=Send%20me%20the%20moving%20checklist"
+        >
+          Email for the checklist
+        </a>
+        <p className="text-sm text-slate-600">hello@bondrefund.online</p>
+      </div>
     </section>
   );
 }

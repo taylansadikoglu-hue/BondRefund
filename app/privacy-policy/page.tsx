@@ -9,21 +9,21 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <InfoPage title="Privacy Policy" description="How this website plans to handle privacy as features are added.">
+    <InfoPage title="Privacy Policy" description="How BondRefund.online handles calculator use, email contact and future monetisation.">
       <p>
         BondRefund.online is designed as a static, low-maintenance website. Calculator inputs are processed in your browser and are not intentionally stored by this website.
       </p>
       <h2>Email capture</h2>
       <p>
-        The checklist email form is a placeholder. If connected later, this policy should be updated to name the email provider, describe what is collected and explain unsubscribe options.
+        If you choose to email BondRefund.online for the moving checklist or a general question, the information you include in that email will be used only to reply to your request.
       </p>
       <h2>Analytics and advertising</h2>
       <p>
-        Analytics and advertising code are not active by default. If Google Analytics, Plausible, AdSense or affiliate tracking is added, this policy should be updated before launch with provider names and opt-out information where relevant.
+        BondRefund.online may use Google AdSense and clearly marked sponsored placements on pages where advertising is enabled. If analytics, affiliate tracking or additional ad providers are added later, this policy should be updated before those services are switched on.
       </p>
       <h2>Affiliate links and lead forms</h2>
       <p>
-        Some future links may be sponsored or affiliate links. If activated, sponsored links should be labelled and may generate revenue when users click, request a quote or sign up with a partner.
+        Some links may become sponsored or affiliate links in future. If activated, sponsored links should be labelled and may generate revenue when users click, request a quote or sign up with a partner.
       </p>
     </InfoPage>
   );

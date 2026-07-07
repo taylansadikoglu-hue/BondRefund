@@ -79,6 +79,9 @@ export default async function GuidePage({ params }: Params) {
           <h2>Disclaimer</h2>
           <p>{site.disclaimer}</p>
         </section>
+        <div className="mt-8">
+          <AdSlot label="Sponsored content" format="fluid" />
+        </div>
       </article>
       <aside className="grid content-start gap-5">
         <AdSlot />

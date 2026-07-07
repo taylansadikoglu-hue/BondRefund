@@ -83,6 +83,10 @@ export default async function CalculatorPage({ params }: Params) {
           <p>{calculator.example}</p>
         </section>
 
+        <div className="mt-8">
+          <AdSlot label="Sponsored content" format="fluid" />
+        </div>
+
         <section className="mt-10">
           <h2 className="text-2xl font-extrabold">Related guides</h2>
           <div className="mt-4 grid gap-3 md:grid-cols-3">
@@ -116,7 +120,7 @@ export default async function CalculatorPage({ params }: Params) {
         <AdSlot />
         <EmailCapture />
         <AffiliateCTA />
-        <AdSlot label="Sidebar ad placeholder" />
+        <AdSlot label="Sponsored placement" />
       </aside>
     </main>
   );

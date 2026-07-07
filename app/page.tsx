@@ -86,6 +86,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="border-y border-[var(--line)] bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <div className="max-w-3xl">
+            <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">How it works</p>
+            <h2 className="mt-2 text-3xl font-extrabold">Simple numbers first, then better questions</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              BondRefund.online helps renters get organised before they reply to an agent, compare quotes or agree to deductions.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "Pick the right calculator",
+                body: "Choose the bond, rent, moving or break lease tool that matches the decision in front of you.",
+              },
+              {
+                title: "Enter your own numbers",
+                body: "Use your rent, bond, quotes and fees so the estimate reflects your situation, not a generic example.",
+              },
+              {
+                title: "Use the result to prepare",
+                body: "Take the estimate into your next step with receipts, condition reports, emails and local tenancy guidance.",
+              },
+            ].map((item) => (
+              <div className="rounded-md border border-[var(--line)] bg-slate-50 p-5" key={item.title}>
+                <h3 className="text-lg font-extrabold text-slate-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-[1fr_320px]">
         <div>
           <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Local SEO</p>

@@ -14,8 +14,8 @@ A production-ready static SEO website for Australian renters, built with Next.js
 - FAQ JSON-LD on calculator pages
 - Internal linking between calculators and guides
 - Placeholder ad slots
-- Disabled affiliate CTA component
-- Email capture placeholder for “Get the free moving checklist”
+- Optional affiliate CTA component
+- Email capture block linked to contact email
 - Analytics placeholder in `app/layout.tsx`
 
 ## Local setup
@@ -62,13 +62,13 @@ In CrazyDomains DNS:
 
 Keep the final values from Vercel as the source of truth because Vercel can change instructions by project or account.
 
-## Where to add monetisation later
+## Monetisation setup
 
 - Display ads: add AdSense values in Vercel environment variables:
   - `NEXT_PUBLIC_ADSENSE_CLIENT`
   - `NEXT_PUBLIC_ADSENSE_DISPLAY_SLOT`
   - `NEXT_PUBLIC_ADSENSE_IN_ARTICLE_SLOT`
-- Ads.txt: `/ads.txt` is generated automatically from `NEXT_PUBLIC_ADSENSE_CLIENT`.
+- Ads.txt: `/ads.txt` is already configured for the Google publisher line and will use `NEXT_PUBLIC_ADSENSE_CLIENT`.
 - Affiliate links: add approved URLs to:
   - `NEXT_PUBLIC_AFFILIATE_MOVERS_URL`
   - `NEXT_PUBLIC_AFFILIATE_CLEANING_URL`

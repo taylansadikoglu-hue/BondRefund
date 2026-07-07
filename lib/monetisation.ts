@@ -1,5 +1,5 @@
 export const adsense = {
-  client: process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "",
+  client: process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-9404887139180084",
   displaySlot: process.env.NEXT_PUBLIC_ADSENSE_DISPLAY_SLOT || "",
   inArticleSlot: process.env.NEXT_PUBLIC_ADSENSE_IN_ARTICLE_SLOT || "",
 };
