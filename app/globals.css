@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbfdfc;
+  --foreground: #10272b;
+  --muted: #5c7077;
+  --line: #d7e5e3;
+  --soft-blue: #eaf6ff;
+  --soft-green: #e7f7ee;
+  --soft-gold: #fff4d6;
+  --brand: #07816f;
+  --brand-dark: #0d4f49;
+  --accent: #1f6feb;
+  --gold: #d99b18;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(7, 129, 111, 0.08), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 42rem);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+.content-prose h2 {
+  margin-top: 2rem;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.content-prose h3 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.content-prose p,
+.content-prose li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.content-prose ul {
+  margin: 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.brand-shadow {
+  box-shadow: 0 18px 45px rgba(13, 79, 73, 0.12);
+}
+
+.ad-shell {
+  min-height: 180px;
+}
