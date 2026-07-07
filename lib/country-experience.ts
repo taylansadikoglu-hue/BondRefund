@@ -119,7 +119,7 @@ export const countryExperiences: Record<CountryCode, CountryExperience> = {
 
 export function detectCountryFromBrowser(input: {
   language?: string | null;
-  languages?: string[] | null;
+  languages?: readonly string[] | null;
   timeZone?: string | null;
 }): CountryCode {
   const languagePool = [input.language, ...(input.languages ?? [])]
