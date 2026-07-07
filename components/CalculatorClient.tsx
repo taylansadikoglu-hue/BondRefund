@@ -2,12 +2,12 @@
 
 import { useMemo, useState } from "react";
 import type { CalculatorKind } from "@/lib/calculators";
-
-function money(value: number) {
-  return new Intl.NumberFormat("en-AU", { style: "currency", currency: "AUD", maximumFractionDigits: 0 }).format(
-    Number.isFinite(value) ? value : 0,
-  );
-}
+import {
+  countryExperiences,
+  formatMoneyForCountry,
+  type CountryCode,
+} from "@/lib/country-experience";
+import { useCountryPreference } from "@/lib/country-preference";
 
 function percent(value: number) {
   return `${(Number.isFinite(value) ? value : 0).toFixed(1)}%`;
@@ -51,7 +51,9 @@ function ResultLine({ label, value }: { label: string; value: string }) {
 }
 
 export function CalculatorClient({ kind }: { kind: CalculatorKind }) {
-  const [state, setState] = useState("NSW");
+  const { country, setCountry } = useCountryPreference("AU");
+  const experience = countryExperiences[country];
+  const [state, setState] = useState(experience.areas[0] ?? "NSW");
   const [weeklyRent, setWeeklyRent] = useState(600);
   const [bondPaid, setBondPaid] = useState(2400);
   const [deductions, setDeductions] = useState(350);
@@ -72,81 +74,96 @@ export function CalculatorClient({ kind }: { kind: CalculatorKind }) {
   const [repaymentWeeks, setRepaymentWeeks] = useState(20);
   const [feesInterest, setFeesInterest] = useState(120);
 
+  function money(value: number) {
+    return formatMoneyForCountry(value, country);
+  }
+
+  const depositLabel = experience.depositWord === "security deposit"
+    ? "Security deposit paid"
+    : `${experience.depositWord.charAt(0).toUpperCase()}${experience.depositWord.slice(1)} paid`;
+
+  const deductionLabel = country === "AU" ? "Claimed deductions" : "Claimed charges";
+
   const result = useMemo(() => {
     if (kind === "bond-refund") {
-      // Bond refund estimate: refund equals bond paid minus claimed deductions, never below zero.
+      const returnLabel =
+        country === "AU"
+          ? "Estimated bond back"
+          : country === "US"
+            ? "Estimated deposit back"
+            : "Estimated deposit back";
       const refund = Math.max(bondPaid - deductions, 0);
       return {
         lines: [
-          ["Estimated refund", money(refund)],
-          ["Claimed deduction percentage", percent((deductions / Math.max(bondPaid, 1)) * 100)],
+          [returnLabel, money(refund)],
+          ["Claimed share", percent((deductions / Math.max(bondPaid, 1)) * 100)],
         ],
         guidance:
           refund === 0
-            ? "The claimed deductions equal or exceed the bond entered. Ask for itemised evidence before agreeing."
-            : `${state} estimate: compare the claimed deductions with your condition report, photos and receipts.`,
+            ? `The claimed charges use all of the ${experience.depositWord} entered. Ask ${experience.landlordWord} for a clear item list before you agree.`
+            : `${experience.label} estimate: compare the claimed charges with your photos, reports and receipts.`,
       };
     }
     if (kind === "break-lease") {
-      // Break lease estimate: uncovered rent plus letting/advertising fee plus other renter-entered costs.
       const total = weeklyRent * weeksRemaining + lettingFee + otherCosts;
-      return { lines: [["Estimated break lease cost", money(total)]], guidance: "This is a planning estimate only. Actual liability can depend on reletting and local rules." };
+      return {
+        lines: [["Estimated leaving cost", money(total)]],
+        guidance: `Use this as a simple planning number. Final costs can change with reletting, notice rules and local law in ${experience.label}.`,
+      };
     }
     if (kind === "rent-increase") {
-      // Weekly increase is annualised over 52 weeks, then averaged across 12 months.
       const weekly = newWeeklyRent - weeklyRent;
       return {
         lines: [
-          ["Weekly increase", money(weekly)],
-          ["Monthly increase", money((weekly * 52) / 12)],
-          ["Annual increase", money(weekly * 52)],
-          ["Percentage increase", percent((weekly / Math.max(weeklyRent, 1)) * 100)],
+          ["Weekly change", money(weekly)],
+          ["Monthly change", money((weekly * 52) / 12)],
+          ["Yearly change", money(weekly * 52)],
+          ["Change %", percent((weekly / Math.max(weeklyRent, 1)) * 100)],
         ],
-        guidance: weekly <= 0 ? "The new rent is not higher than the current rent entered." : "Use this to compare the increase with local listings and your household budget.",
+        guidance:
+          weekly <= 0
+            ? "The new rent is not higher than the current rent entered."
+            : `Use this to compare the new rent with your budget and the cost of moving in ${experience.label}.`,
       };
     }
     if (kind === "moving-cost") {
-      // Moving range: labour plus distance and bedroom allowances, with a 15% buffer either side.
       const base = hourlyRate * hours + extras + distance * 3 + bedrooms * 80;
       return {
         lines: [
           ["Low estimate", money(base * 0.85)],
           ["High estimate", money(base * 1.15)],
         ],
-        guidance: "Access, stairs, heavy items, packing and storage can move the real quote outside this range.",
+        guidance: "Stairs, parking, heavy items, packing and storage can change the real price.",
       };
     }
     if (kind === "rental-affordability") {
-      // Affordability ratio: yearly rent divided by gross annual income.
       const ratio = ((weeklyRent * 52) / Math.max(annualIncome, 1)) * 100;
-      const rating = ratio < 25 ? "Comfortable" : ratio <= 30 ? "Watch closely" : ratio <= 40 ? "Stretched" : "High pressure";
+      const rating = ratio < 25 ? "Comfortable" : ratio <= 30 ? "Watch" : ratio <= 40 ? "Stretched" : "High";
       return {
         lines: [
-          ["Rent as percentage of income", percent(ratio)],
-          ["Affordability rating", rating],
+          ["Rent vs income", percent(ratio)],
+          ["Rating", rating],
         ],
-        guidance: "This uses gross income. Your after-tax budget, debts and living costs may change the picture.",
+        guidance: "This uses gross income. Real affordability can change after tax, debt and living costs.",
       };
     }
     if (kind === "end-of-lease-cleaning") {
-      // Cleaning range: base property size plus bathrooms and optional carpet/furnished load.
       const base = 180 + bedrooms * 95 + bathrooms * 55 + (carpet ? bedrooms * 45 : 0) + (furnished ? 120 : 0);
       return {
         lines: [
           ["Low estimate", money(base * 0.9)],
           ["High estimate", money(base * 1.2)],
         ],
-        guidance: "Condition, appliances, carpet, windows and quote inclusions can change the final price.",
+        guidance: "Property condition, carpet, windows and quote inclusions can change the final price.",
       };
     }
-    // Bond loan estimate: total repayment equals principal plus user-entered fees/interest, divided by repayment weeks.
     const total = loanAmount + feesInterest;
     return {
       lines: [
-        ["Estimated total repayment", money(total)],
-        ["Estimated weekly repayment", money(total / Math.max(repaymentWeeks, 1))],
+        ["Total repayment", money(total)],
+        ["Weekly repayment", money(total / Math.max(repaymentWeeks, 1))],
       ],
-      guidance: "Compare total repayment, fees and eligibility before applying for any loan product.",
+      guidance: "Compare the total cost, fees and rules before you apply.",
     };
   }, [
     annualIncome,
@@ -170,32 +187,65 @@ export function CalculatorClient({ kind }: { kind: CalculatorKind }) {
     state,
     weeklyRent,
     weeksRemaining,
+    country,
+    experience.authorityLabel,
+    experience.depositWord,
+    experience.label,
+    experience.landlordWord,
   ]);
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
       <form className="rounded-md border border-[var(--line)] bg-white p-5 shadow-sm">
+        <div className="mb-5 rounded-xl border border-[var(--line)] bg-slate-50 p-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--brand-dark)]">Country</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {(Object.keys(countryExperiences) as CountryCode[]).map((code) => {
+              const active = code === country;
+              return (
+                <button
+                  key={code}
+                  className={`focus-ring rounded-full border px-4 py-2 text-sm font-bold ${
+                    active
+                      ? "border-[var(--brand)] bg-[var(--brand)] text-white"
+                      : "border-[var(--line)] bg-white text-slate-700"
+                  }`}
+                  onClick={() => {
+                    setCountry(code);
+                    setState(countryExperiences[code].areas[0] ?? "");
+                  }}
+                  type="button"
+                >
+                  {countryExperiences[code].label}
+                </button>
+              );
+            })}
+          </div>
+          <p className="mt-3 text-sm leading-6 text-slate-600">
+            Using {experience.label} terms and {experience.currency} amounts.
+          </p>
+        </div>
         <div className="grid gap-4">
           {kind === "bond-refund" && (
             <>
               <label className="grid gap-2 text-sm font-bold text-slate-700">
-                State or territory
+                {experience.areaLabel}
                 <select className="focus-ring min-h-11 rounded-md border border-slate-300 px-3 font-normal" value={state} onChange={(event) => setState(event.target.value)}>
-                  {["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"].map((option) => (
+                  {experience.areas.map((option) => (
                     <option key={option}>{option}</option>
                   ))}
                 </select>
               </label>
               <Field label="Weekly rent" value={weeklyRent} onChange={setWeeklyRent} />
-              <Field label="Bond paid" value={bondPaid} onChange={setBondPaid} />
-              <Field label="Claimed deductions" value={deductions} onChange={setDeductions} />
+              <Field label={depositLabel} value={bondPaid} onChange={setBondPaid} />
+              <Field label={deductionLabel} value={deductions} onChange={setDeductions} />
             </>
           )}
           {kind === "break-lease" && (
             <>
               <Field label="Weekly rent" value={weeklyRent} onChange={setWeeklyRent} />
-              <Field label="Weeks remaining or uncovered" value={weeksRemaining} onChange={setWeeksRemaining} />
-              <Field label="Advertising/letting fee" value={lettingFee} onChange={setLettingFee} />
+              <Field label="Weeks left or not covered" value={weeksRemaining} onChange={setWeeksRemaining} />
+              <Field label="Advertising or reletting fee" value={lettingFee} onChange={setLettingFee} />
               <Field label="Other costs" value={otherCosts} onChange={setOtherCosts} />
             </>
           )}
@@ -209,9 +259,9 @@ export function CalculatorClient({ kind }: { kind: CalculatorKind }) {
             <>
               <Field label="Number of bedrooms" value={bedrooms} onChange={setBedrooms} />
               <Field label="Moving distance in km" value={distance} onChange={setDistance} />
-              <Field label="Removalist hourly rate" value={hourlyRate} onChange={setHourlyRate} />
+              <Field label="Moving company hourly rate" value={hourlyRate} onChange={setHourlyRate} />
               <Field label="Estimated hours" value={hours} onChange={setHours} />
-              <Field label="Packing/storage extras" value={extras} onChange={setExtras} />
+              <Field label="Packing or storage extras" value={extras} onChange={setExtras} />
             </>
           )}
           {kind === "rental-affordability" && (
@@ -251,6 +301,9 @@ export function CalculatorClient({ kind }: { kind: CalculatorKind }) {
           ))}
         </div>
         <p className="mt-4 text-sm leading-6 text-slate-700">{result.guidance}</p>
+        <p className="mt-3 text-xs leading-5 text-slate-500">
+          Check the final rule with your {experience.authorityLabel} and your lease papers.
+        </p>
       </section>
     </div>
   );
