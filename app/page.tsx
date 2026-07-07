@@ -15,13 +15,13 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:py-20">
           <div>
             <p className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-sm font-bold text-[var(--brand-dark)]">
-              Free Australian renter calculators
+              Bond protection and renter cost planning for Australia
             </p>
             <h1 className="mt-3 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 md:text-6xl">
-              Know your rental costs before they surprise you.
+              Protect your bond and plan renter costs with more confidence.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Estimate bond refunds, break lease costs, rent increases, moving costs and end-of-lease expenses with transparent Australian renter tools.
+              BondRefund.online helps Australian renters estimate refunds, compare moving costs, plan rent changes and prepare for the money decisions that come with renting.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link className="focus-ring rounded-md bg-[var(--brand)] px-5 py-3 text-center font-bold text-white" href="/calculators/bond-refund-calculator">
@@ -51,7 +51,7 @@ export default function HomePage() {
             <div className="p-5">
               <div className="rounded-md bg-[var(--soft-gold)] p-4">
                 <p className="text-sm font-bold uppercase tracking-wide text-amber-800">Start here</p>
-                <p className="mt-1 text-2xl font-extrabold text-slate-950">What might you get back?</p>
+                <p className="mt-1 text-2xl font-extrabold text-slate-950">What does this decision really cost?</p>
               </div>
               <div className="mt-4 grid gap-3">
                 {calculators.slice(0, 5).map((calculator) => (
@@ -92,7 +92,7 @@ export default function HomePage() {
             <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">How it works</p>
             <h2 className="mt-2 text-3xl font-extrabold">Simple numbers first, then better questions</h2>
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              BondRefund.online helps renters get organised before they reply to an agent, compare quotes or agree to deductions.
+              BondRefund.online helps renters get organised before they reply to an agent, accept deductions, compare quotes or decide whether moving still makes sense.
             </p>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-3">

@@ -2,7 +2,7 @@ export const site = {
   name: "BondRefund.online",
   url: "https://bondrefund.online",
   description:
-    "Free Australian rental calculators and guides for bond refunds, moving costs, rent increases, break lease costs and end-of-lease expenses.",
+    "Free Australian renter calculators and guides for protecting your bond, planning moving costs, comparing rent changes and making better rental decisions.",
   disclaimer: "This is general information only and not legal or financial advice.",
 };
 
