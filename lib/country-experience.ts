@@ -50,7 +50,7 @@ export const countryExperiences: Record<CountryCode, CountryExperience> = {
       "Notice periods and dispute steps",
     ],
     quickFacts: ["No signup", "Fast estimates", "Built for Australia"],
-    guidesHeading: "Bond guides by city",
+    guidesHeading: "Guides by city",
     guidesIntro: "Start with your city. Then look at the simple guides below.",
   },
   US: {

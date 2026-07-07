@@ -2,7 +2,7 @@ export const site = {
   name: "BondRefund.online",
   url: "https://bondrefund.online",
   description:
-    "Free Australian renter calculators and guides for protecting your bond, planning moving costs, comparing rent changes and making better rental decisions.",
+    "Simple renter calculators and guides for bond, rent and moving costs.",
   disclaimer: "This is general information only and not legal or financial advice.",
 };
 

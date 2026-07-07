@@ -91,7 +91,7 @@ export function HomeCountryExperience() {
             </div>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link className="focus-ring rounded-md bg-[var(--brand)] px-5 py-3 text-center font-bold text-white shadow-sm" href="/calculators/bond-refund-calculator">
-                Estimate your {experience.depositWord}
+                {country === "AU" ? "Check your bond" : "Check your deposit"}
               </Link>
               <Link className="focus-ring rounded-md border border-slate-300 bg-white px-5 py-3 text-center font-bold text-slate-900" href="/guides">
                 Browse guides
@@ -163,7 +163,7 @@ export function HomeCountryExperience() {
             <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Check the rules in {experience.label}</p>
             <h2 className="mt-2 text-3xl font-extrabold">Common problems and where to check</h2>
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              We help with the numbers. For the final answer, check the right authority, your lease and your evidence.
+              We help with the numbers. Then check your lease and local rules.
             </p>
           </div>
           <div className="mt-8 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
