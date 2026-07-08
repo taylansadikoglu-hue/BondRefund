@@ -134,7 +134,7 @@ export function HomeCountryExperience() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12">
+      <section className="mx-auto max-w-6xl px-4 py-12" id="calculators">
         <div className="mb-6 flex flex-col justify-between gap-3 md:flex-row md:items-end">
           <div>
             <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Calculators</p>

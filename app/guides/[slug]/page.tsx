@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/AdSlot";
 import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { EmailCapture } from "@/components/EmailCapture";
+import { JsonLd } from "@/components/JsonLd";
 import { getCalculator } from "@/lib/calculators";
 import { getGuide, guides, guideSections } from "@/lib/guides";
 import { site } from "@/lib/site";
@@ -37,8 +38,51 @@ export default async function GuidePage({ params }: Params) {
   const guide = getGuide(slug);
   if (!guide) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    mainEntityOfPage: `${site.url}/guides/${guide.slug}`,
+    author: {
+      "@type": "Organization",
+      name: site.name,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: site.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Guides",
+        item: `${site.url}/guides`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: guide.title,
+        item: `${site.url}/guides/${guide.slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[1fr_320px]">
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <article>
         <nav className="text-sm font-semibold text-slate-500">
           <Link className="focus-ring hover:text-[var(--brand)]" href="/">
@@ -56,6 +100,8 @@ export default async function GuidePage({ params }: Params) {
         </header>
 
         <section className="content-prose mt-8 rounded-md border border-[var(--line)] bg-white p-6">
+          <h2>Quick answer</h2>
+          <p>{guide.description}</p>
           {guideSections(guide).map((section) => (
             <div key={section.heading}>
               <h2>{section.heading}</h2>

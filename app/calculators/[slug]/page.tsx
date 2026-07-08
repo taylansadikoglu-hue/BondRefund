@@ -52,9 +52,51 @@ export default async function CalculatorPage({ params }: Params) {
     })),
   };
 
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: calculator.title,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Web",
+    url: `${site.url}/calculators/${calculator.slug}`,
+    description: calculator.description,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "AUD",
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: site.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Calculators",
+        item: `${site.url}/#calculators`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: calculator.title,
+        item: `${site.url}/calculators/${calculator.slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[1fr_320px]">
       <JsonLd data={faqSchema} />
+      <JsonLd data={softwareSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <article>
         <nav className="text-sm font-semibold text-slate-500">
           <Link className="focus-ring hover:text-[var(--brand)]" href="/">
@@ -74,6 +116,12 @@ export default async function CalculatorPage({ params }: Params) {
           <p className="mt-4 rounded-md border border-amber-200 bg-amber-50 p-4 text-sm font-semibold leading-6 text-amber-900">
             {site.disclaimer}
           </p>
+        </section>
+
+        <section className="mt-8 rounded-md border border-emerald-200 bg-emerald-50 p-6">
+          <h2 className="text-2xl font-extrabold text-slate-950">Quick answer</h2>
+          <p className="mt-3 text-base leading-7 text-slate-700">{calculator.description}</p>
+          <p className="mt-3 text-base leading-7 text-slate-700">{calculator.example}</p>
         </section>
 
         <section className="content-prose mt-10 rounded-md border border-[var(--line)] bg-white p-6">
