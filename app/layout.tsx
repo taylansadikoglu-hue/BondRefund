@@ -14,6 +14,19 @@ export const metadata: Metadata = {
     template: "%s | BondRefund.online",
   },
   description: site.description,
+  alternates: {
+    canonical: site.url,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     title: "BondRefund.online",
     description: site.description,
