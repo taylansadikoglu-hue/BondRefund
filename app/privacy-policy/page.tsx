@@ -15,7 +15,10 @@ export default function PrivacyPolicyPage() {
       </p>
       <h2>Email capture</h2>
       <p>
-        If you choose to email BondRefund.online for the moving checklist or a general question, the information you include in that email will be used only to reply to your request.
+        If you enter your email to receive a free checklist, BondRefund.online may store your email address, the page you signed up from and the guide requested so the checklist or related updates can be sent to you.
+      </p>
+      <p>
+        If you choose to email BondRefund.online directly for a checklist or a general question, the information you include in that email will be used only to reply to your request.
       </p>
       <h2>Analytics and advertising</h2>
       <p>
