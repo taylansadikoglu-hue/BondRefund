@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { CalculatorKind } from "@/lib/calculators";
 import {
   countryExperiences,
@@ -26,6 +26,12 @@ function Field({
   min?: number;
   step?: number;
 }) {
+  const [draft, setDraft] = useState(String(value));
+
+  useEffect(() => {
+    setDraft(String(value));
+  }, [value]);
+
   return (
     <label className="grid gap-2 text-sm font-bold text-slate-700">
       {label}
@@ -33,9 +39,37 @@ function Field({
         className="focus-ring min-h-11 rounded-md border border-slate-300 px-3 font-normal"
         min={min}
         step={step}
-        type="number"
-        value={value}
-        onChange={(event) => onChange(Number(event.target.value))}
+        type="text"
+        inputMode={step < 1 ? "decimal" : "numeric"}
+        value={draft}
+        onChange={(event) => {
+          const next = event.target.value.replace(/[^\d.]/g, "");
+          setDraft(next);
+
+          if (next === "") {
+            return;
+          }
+
+          const parsed = Number(next);
+          if (Number.isFinite(parsed) && parsed >= min) {
+            onChange(parsed);
+          }
+        }}
+        onBlur={() => {
+          if (draft === "") {
+            setDraft(String(value));
+            return;
+          }
+
+          const parsed = Number(draft);
+          if (!Number.isFinite(parsed) || parsed < min) {
+            setDraft(String(value));
+            return;
+          }
+
+          setDraft(String(parsed));
+          onChange(parsed);
+        }}
       />
     </label>
   );
