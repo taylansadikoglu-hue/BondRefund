@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!guide) return {};
 
   return {
-    title: `${guide.title} | BondRefund.online`,
+    title: guide.title,
     description: guide.description,
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: {
