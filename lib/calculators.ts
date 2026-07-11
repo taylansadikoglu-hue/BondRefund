@@ -54,9 +54,9 @@ export const calculators: Calculator[] = [
     kind: "break-lease",
     title: "Break Lease Calculator",
     shortTitle: "Break lease",
-    description: "Estimate possible break lease costs using remaining rent, letting fees and other costs.",
-    metaTitle: "Break Lease Calculator Australia | Estimate Costs",
-    metaDescription: "Estimate break lease costs in Australia including rent remaining, advertising, letting fees and other expenses.",
+    description: "Estimate possible break lease costs using uncovered rent, advertising, reletting fees and other costs.",
+    metaTitle: "Break Lease Calculator Australia | Estimate Break Lease Costs",
+    metaDescription: "Use a free break lease calculator to estimate uncovered rent, advertising, reletting fees and other possible break lease costs in Australia.",
     example: "If rent is $600 per week, two weeks are uncovered, and fees total $900, the estimated cost is $2,100.",
     guideText:
       "Break lease costs can vary by state, lease type and how quickly a replacement tenant is found. Use this estimate as a planning tool and check your local tenancy authority.",
@@ -110,7 +110,7 @@ export const calculators: Calculator[] = [
     shortTitle: "Moving cost",
     description: "Estimate moving costs based on bedrooms, distance, removalist rates, hours and extras.",
     metaTitle: "Moving Cost Calculator Australia | Estimate Moving House Costs",
-    metaDescription: "Plan your move with an Australian moving cost calculator for removalists, distance, bedrooms and extras.",
+    metaDescription: "Estimate moving costs in Australia, including Brisbane moving costs, removalist hours, bedrooms, distance, packing and extras.",
     example: "A two-bedroom local move at $160 per hour for five hours plus $250 extras estimates around $1,050.",
     guideText:
       "Moving costs often change with access, stairs, parking, packing, storage and travel time. Get written quotes and check what is included.",
@@ -136,8 +136,8 @@ export const calculators: Calculator[] = [
     title: "Rental Affordability Calculator",
     shortTitle: "Affordability",
     description: "See rent as a percentage of annual income and get a simple affordability rating.",
-    metaTitle: "Rental Affordability Calculator Australia | Rent to Income",
-    metaDescription: "Calculate rent as a percentage of income and understand rental affordability in Australia.",
+    metaTitle: "How Much Rent Can I Afford? | Australia Rent Calculator",
+    metaDescription: "Calculate how much rent you can afford in Australia by comparing weekly rent with annual household income and a rent-to-income benchmark.",
     example: "A $550 weekly rent on an $85,000 annual income is about 33.6% of gross income.",
     guideText:
       "A common rule of thumb is that rent above 30% of gross income can feel stretched, but personal debts, location and household size matter.",
@@ -164,7 +164,7 @@ export const calculators: Calculator[] = [
     shortTitle: "Cleaning cost",
     description: "Estimate end-of-lease cleaning costs by bedrooms, bathrooms, carpet and furnishing.",
     metaTitle: "End of Lease Cleaning Cost Calculator Australia",
-    metaDescription: "Estimate bond cleaning costs for Australian renters based on property size, bathrooms, carpet and furniture.",
+    metaDescription: "Estimate end-of-lease cleaning cost and compare cleaning quotes by bedrooms, bathrooms, carpet, furnishing and property condition.",
     example: "A three-bedroom, two-bathroom home with carpet cleaning may estimate around $520 to $720.",
     guideText:
       "Cleaning costs depend on property condition, inclusions, carpet, appliances and location. Compare inclusions carefully before booking.",
