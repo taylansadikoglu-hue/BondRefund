@@ -122,6 +122,21 @@ export default async function GuidePage({ params }: Params) {
               <p>{section.body}</p>
             </div>
           ))}
+          <h2>Renter action planner</h2>
+          <div className="not-prose grid gap-3 md:grid-cols-3">
+            <div className="rounded-md border border-[var(--line)] bg-[var(--paper)] p-4">
+              <h3 className="font-bold text-slate-950">Estimate</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Use the related calculator to turn the issue into a rough dollar range before replying.</p>
+            </div>
+            <div className="rounded-md border border-[var(--line)] bg-[var(--paper)] p-4">
+              <h3 className="font-bold text-slate-950">Collect proof</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Keep photos, condition reports, receipts, quotes, invoices, emails and key dates together.</p>
+            </div>
+            <div className="rounded-md border border-[var(--line)] bg-[var(--paper)] p-4">
+              <h3 className="font-bold text-slate-950">Compare</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">Compare any claimed amount with the evidence, the quote detail and the actual property condition.</p>
+            </div>
+          </div>
           <h2>Related calculators</h2>
           <ul>
             {guide.relatedCalculators.map((slug) => {
