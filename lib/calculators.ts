@@ -55,7 +55,7 @@ export const calculators: Calculator[] = [
     title: "Break Lease Calculator",
     shortTitle: "Break lease",
     description: "Estimate possible break lease costs using uncovered rent, advertising, reletting fees and other costs.",
-    metaTitle: "Break Lease Calculator Australia | Estimate Break Lease Costs",
+    metaTitle: "Break Lease Calculator Australia",
     metaDescription: "Use a free break lease calculator to estimate uncovered rent, advertising, reletting fees and other possible break lease costs in Australia.",
     example: "If rent is $600 per week, two weeks are uncovered, and fees total $900, the estimated cost is $2,100.",
     guideText:
@@ -82,7 +82,7 @@ export const calculators: Calculator[] = [
     title: "Rent Increase Calculator",
     shortTitle: "Rent increase",
     description: "Compare current and new weekly rent to see weekly, monthly and annual increases.",
-    metaTitle: "Rent Increase Calculator Australia | Weekly, Monthly, Annual",
+    metaTitle: "Rent Increase Calculator Australia",
     metaDescription: "Calculate weekly, monthly, annual and percentage rent increases for Australian renters.",
     example: "A rise from $550 to $610 per week is $60 weekly, about $260.71 monthly, and $3,120 annually.",
     guideText:
@@ -109,7 +109,7 @@ export const calculators: Calculator[] = [
     title: "Moving Cost Calculator",
     shortTitle: "Moving cost",
     description: "Estimate moving costs based on bedrooms, distance, removalist rates, hours and extras.",
-    metaTitle: "Moving Cost Calculator Australia | Estimate Moving House Costs",
+    metaTitle: "Moving Cost Calculator Australia",
     metaDescription: "Estimate moving costs in Australia, including Brisbane moving costs, removalist hours, bedrooms, distance, packing and extras.",
     example: "A two-bedroom local move at $160 per hour for five hours plus $250 extras estimates around $1,050.",
     guideText:
