@@ -73,6 +73,8 @@ export const guides: Guide[] = Object.entries(titles).map(([slug, [title, descri
       ? "Bond refunds"
       : slug.includes("moving")
         ? "Moving"
+        : slug.includes("cleaning")
+          ? "End of lease cleaning"
         : slug.includes("lease")
           ? "Break lease"
           : "Renting",
