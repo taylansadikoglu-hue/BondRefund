@@ -8,7 +8,6 @@ export function GET() {
     .join("\n");
 
   const topGuides = guides
-    .slice(0, 20)
     .map((guide) => `- ${guide.title}: ${site.url}/guides/${guide.slug}`)
     .join("\n");
 
