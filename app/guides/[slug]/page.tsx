@@ -6,7 +6,7 @@ import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { EmailCapture } from "@/components/EmailCapture";
 import { JsonLd } from "@/components/JsonLd";
 import { getCalculator } from "@/lib/calculators";
-import { getGuide, guides, guideSections } from "@/lib/guides";
+import { getGuide, guides, guideFaqs, guideSections } from "@/lib/guides";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -53,6 +53,19 @@ export default async function GuidePage({ params }: Params) {
       name: site.name,
     },
   };
+  const faqs = guideFaqs(guide);
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -83,6 +96,7 @@ export default async function GuidePage({ params }: Params) {
     <main className="mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[1fr_320px]">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
       <article>
         <nav className="text-sm font-semibold text-slate-500">
           <Link className="focus-ring hover:text-[var(--brand)]" href="/">
@@ -122,6 +136,13 @@ export default async function GuidePage({ params }: Params) {
               );
             })}
           </ul>
+          <h2>Frequently asked questions</h2>
+          {faqs.map((faq) => (
+            <div key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
           <h2>Disclaimer</h2>
           <p>{site.disclaimer}</p>
         </section>
