@@ -18,6 +18,12 @@ const titles: Record<string, [string, string, string[], string?]> = {
   "end-of-lease-cleaning-checklist": ["End of Lease Cleaning Checklist", "A room-by-room checklist for preparing a rental before handover.", ["end-of-lease-cleaning-calculator"]],
   "rental-bond-dispute-guide": ["Rental Bond Dispute Guide", "How to organise evidence and respond to disputed bond deductions.", ["bond-refund-calculator"]],
   "break-lease-costs-australia": ["Break Lease Calculator Australia: Estimate Break Lease Costs", "Use the break lease calculator to estimate uncovered rent, advertising, reletting fees and other possible costs before you negotiate.", ["break-lease-calculator"]],
+  "break-lease-calculator-guide": ["Break Lease Calculator Guide", "How to use a break lease calculator to estimate rent, reletting costs, advertising and other possible break lease costs.", ["break-lease-calculator"]],
+  "break-lease-fee-calculator": ["Break Lease Fee Calculator", "Estimate possible break lease fees and separate fixed costs from vacancy-related rent exposure.", ["break-lease-calculator"]],
+  "how-much-does-it-cost-to-break-a-lease": ["How Much Does It Cost to Break a Lease?", "A practical guide to the costs that can appear when a renter ends a lease early in Australia.", ["break-lease-calculator"]],
+  "break-lease-costs-nsw": ["Break Lease Costs NSW", "Estimate possible NSW break lease costs and organise the records to check any claimed amount.", ["break-lease-calculator"], "NSW"],
+  "break-lease-costs-vic": ["Break Lease Costs Victoria", "Estimate possible Victorian break lease costs and compare claimed fees with evidence and timing.", ["break-lease-calculator"], "Victoria"],
+  "break-lease-costs-qld": ["Break Lease Costs Queensland", "Estimate possible Queensland break lease costs including rent exposure, advertising and reletting items.", ["break-lease-calculator"], "Queensland"],
   "rent-increase-rules-australia": ["Rent Increase Rules in Australia", "General rent increase concepts and where to check local rules.", ["rent-increase-calculator"]],
   "moving-house-checklist": ["Moving House Checklist", "A practical checklist for planning, packing and updating services.", ["moving-cost-calculator"]],
   "rental-inspection-checklist": ["Rental Inspection Checklist", "What to check before, during and after rental inspections.", ["bond-refund-calculator"]],
@@ -25,6 +31,11 @@ const titles: Record<string, [string, string, string[], string?]> = {
   "bond-cleaning-cost-guide": ["End of Lease Cleaning Cost Guide", "What affects end-of-lease cleaning cost, bond cleaning prices and cleaner quotes in Australia.", ["end-of-lease-cleaning-calculator"]],
   "end-of-lease-cleaning-cost": ["End of Lease Cleaning Cost Australia", "Estimate end-of-lease cleaning cost by property size, bathrooms, carpet, furnished rooms and quote inclusions.", ["end-of-lease-cleaning-calculator", "bond-refund-calculator"]],
   "end-of-lease-cleaning-quote": ["End of Lease Cleaning Quote: What to Check", "How to compare an end-of-lease cleaning quote before booking a cleaner or accepting a bond deduction.", ["end-of-lease-cleaning-calculator", "bond-refund-calculator"]],
+  "end-of-lease-cleaning-prices": ["End of Lease Cleaning Prices", "Understand the main drivers behind end-of-lease cleaning prices before comparing cleaner quotes.", ["end-of-lease-cleaning-calculator"]],
+  "bond-cleaning-quote": ["Bond Cleaning Quote: What Should Be Included?", "Check what a bond cleaning quote includes before you book a cleaner or respond to a cleaning deduction.", ["end-of-lease-cleaning-calculator", "bond-refund-calculator"]],
+  "end-of-lease-cleaning-cost-2-bedroom": ["End of Lease Cleaning Cost for a 2 Bedroom Home", "Estimate cleaning cost for a 2 bedroom rental using bathrooms, carpet, furnished rooms and condition.", ["end-of-lease-cleaning-calculator"]],
+  "end-of-lease-cleaning-cost-3-bedroom": ["End of Lease Cleaning Cost for a 3 Bedroom Home", "Estimate cleaning cost for a 3 bedroom rental and compare cleaner quotes with common inclusions.", ["end-of-lease-cleaning-calculator"]],
+  "end-of-lease-carpet-cleaning-cost": ["End of Lease Carpet Cleaning Cost", "Plan carpet cleaning costs for an end-of-lease clean and check when carpet cleaning is actually relevant.", ["end-of-lease-cleaning-calculator", "bond-refund-calculator"]],
   "tenant-rights-bond-refund": ["Tenant Rights and Bond Refunds", "General renter considerations when seeking a bond refund.", ["bond-refund-calculator"]],
   "normal-wear-and-tear-examples": ["Normal Wear and Tear Examples", "Examples renters can use when thinking about fair wear and tear.", ["bond-refund-calculator"]],
   "landlord-deduction-examples": ["Landlord Deduction Examples", "Common deduction types and what evidence may be relevant.", ["bond-refund-calculator"]],
@@ -36,6 +47,12 @@ const titles: Record<string, [string, string, string[], string?]> = {
   "breaking-lease-without-penalty": ["Breaking Lease Without Penalty", "Situations to investigate before assuming all break lease costs apply.", ["break-lease-calculator"]],
   "rent-affordability-guide": ["Rent Affordability Guide Australia", "How to compare rent with income, moving costs and your household budget.", ["rental-affordability-calculator"]],
   "how-much-rent-can-i-afford-australia": ["How Much Rent Can I Afford in Australia?", "Use income, weekly rent and moving costs to estimate how much rent may fit your Australian rental budget.", ["rental-affordability-calculator", "moving-cost-calculator"]],
+  "how-much-can-i-afford-to-rent": ["How Much Can I Afford to Rent?", "Estimate affordable rent from income, weekly rent, moving costs and a simple rent-to-income benchmark.", ["rental-affordability-calculator", "moving-cost-calculator"]],
+  "how-much-rent-can-i-afford-on-60000": ["How Much Rent Can I Afford on $60,000?", "Use a $60,000 income as a starting point for estimating weekly rent affordability in Australia.", ["rental-affordability-calculator"]],
+  "how-much-rent-can-i-afford-on-80000": ["How Much Rent Can I Afford on $80,000?", "Use an $80,000 income as a starting point for estimating weekly rent affordability in Australia.", ["rental-affordability-calculator"]],
+  "how-much-rent-can-i-afford-on-100000": ["How Much Rent Can I Afford on $100,000?", "Use a $100,000 income as a starting point for estimating weekly rent affordability in Australia.", ["rental-affordability-calculator"]],
+  "rent-to-income-ratio-calculator-australia": ["Rent to Income Ratio Calculator Australia", "Compare weekly rent with annual income and understand what the rent-to-income percentage means.", ["rental-affordability-calculator"]],
+  "30-percent-rent-rule-australia": ["30% Rent Rule Australia", "Understand the 30% rent rule, when it helps, and why moving costs and take-home pay still matter.", ["rental-affordability-calculator"]],
   "moving-costs-australia": ["Moving Costs in Australia", "Typical moving cost categories renters should budget for.", ["moving-cost-calculator"]],
   "bond-loans-explained": ["Bond Loans Explained", "A simple guide to bond loans, repayments, fees and alternatives.", ["bond-loan-calculator"]],
   "rental-application-costs": ["Rental Application Costs", "Costs to prepare for when applying and moving into a rental.", ["rental-affordability-calculator", "bond-loan-calculator"]],
@@ -55,6 +72,10 @@ const titles: Record<string, [string, string, string[], string?]> = {
   "sydney-moving-costs": ["Sydney Moving Costs", "Plan Sydney moving costs for removalists, distance, packing and storage extras.", ["moving-cost-calculator"], "Sydney"],
   "melbourne-moving-costs": ["Melbourne Moving Costs", "Plan Melbourne moving costs with a simple removalist and extras checklist.", ["moving-cost-calculator"], "Melbourne"],
   "brisbane-moving-costs": ["Moving Costs Brisbane", "Estimate moving costs in Brisbane using bedrooms, distance, removalist hours, access, packing and extras.", ["moving-cost-calculator"], "Brisbane"],
+  "how-much-does-it-cost-to-move-in-brisbane": ["How Much Does It Cost to Move in Brisbane?", "Estimate Brisbane moving costs using removalist time, bedrooms, access, packing and move distance.", ["moving-cost-calculator"], "Brisbane"],
+  "moving-house-costs-brisbane": ["Moving House Costs Brisbane", "Plan moving house costs in Brisbane including removalists, cleaning, bond, rent in advance and overlap.", ["moving-cost-calculator"], "Brisbane"],
+  "removalist-costs-brisbane": ["Removalist Costs Brisbane", "Estimate Brisbane removalist costs by hours, access, stairs, distance, packing and heavy items.", ["moving-cost-calculator"], "Brisbane"],
+  "brisbane-moving-quotes": ["Brisbane Moving Quotes: What to Compare", "Compare Brisbane moving quotes by hourly rate, call-out time, access fees, insurance and inclusions.", ["moving-cost-calculator"], "Brisbane"],
   "sydney-rent-increase-guide": ["Sydney Rent Increase Guide", "Compare a Sydney rent increase with your annual budget and moving alternatives.", ["rent-increase-calculator", "rental-affordability-calculator"], "Sydney"],
   "melbourne-rent-increase-guide": ["Melbourne Rent Increase Guide", "Compare a Melbourne rent increase with affordability and moving cost estimates.", ["rent-increase-calculator", "rental-affordability-calculator"], "Melbourne"],
   "brisbane-rent-increase-guide": ["Brisbane Rent Increase Guide", "Compare a Brisbane rent increase with household income and moving costs.", ["rent-increase-calculator", "rental-affordability-calculator"], "Brisbane"],
@@ -221,6 +242,90 @@ export function guideSections(guide: Guide) {
     return focused;
   }
 
+  if (guide.slug.includes("break-lease")) {
+    return [
+      {
+        heading: "Quick estimate",
+        body: `${guide.description} Start with weekly rent, expected vacant weeks, advertising or reletting items, and any known fixed amounts.`,
+      },
+      {
+        heading: "Costs to separate",
+        body: "Separate rent exposure from once-off fees. Rent exposure usually depends on timing, while advertising, reletting, cleaning or administration items should be checked against records and invoices.",
+      },
+      {
+        heading: "Evidence to ask for",
+        body: "Ask for itemised amounts, lease references, dates, invoices, advertising records and evidence of efforts to find a replacement renter where relevant.",
+      },
+      {
+        heading: "Use the calculator before agreeing",
+        body: "Run the related break lease calculator, compare the result with the claimed amount, and keep the estimate with your lease, emails and condition records.",
+      },
+    ];
+  }
+
+  if (guide.slug.includes("cleaning") || guide.slug.includes("clean")) {
+    return [
+      {
+        heading: "Quick estimate",
+        body: `${guide.description} The biggest cost drivers are property size, bathrooms, kitchen condition, carpet, furnished rooms, windows, balconies and urgency.`,
+      },
+      {
+        heading: "Quote checks",
+        body: "Before booking or accepting a deduction, check whether carpet, oven, windows, blinds, balconies, furnished items, GST and return cleans are included.",
+      },
+      {
+        heading: "Bond deduction checks",
+        body: "If cleaning is claimed from bond, ask for photos, an itemised invoice or quote, and a clear link between the work claimed and the exit condition of the property.",
+      },
+      {
+        heading: "Use the calculator",
+        body: "Use the end-of-lease cleaning calculator to create a planning range, then compare each quote against the same rooms and inclusions.",
+      },
+    ];
+  }
+
+  if (guide.slug.includes("rent") || guide.slug.includes("afford")) {
+    return [
+      {
+        heading: "Quick estimate",
+        body: `${guide.description} Convert weekly rent into annual rent, then compare it with gross income and your real take-home budget.`,
+      },
+      {
+        heading: "What the percentage means",
+        body: "A 30% rent-to-income benchmark is a useful warning light, not a rule. Debt, transport, dependants, savings goals and irregular income can change what feels affordable.",
+      },
+      {
+        heading: "Upfront costs matter",
+        body: "Bond, rent in advance, removalists, end-of-lease cleaning, utility setup and rent overlap can make a rental hard to afford even when the weekly rent looks manageable.",
+      },
+      {
+        heading: "Use the calculator",
+        body: "Use the rental affordability calculator to compare weekly rent with annual income, then add a moving cost estimate before applying.",
+      },
+    ];
+  }
+
+  if (guide.slug.includes("moving") || guide.slug.includes("removalist")) {
+    return [
+      {
+        heading: "Quick estimate",
+        body: `${guide.description} Moving costs usually depend on bedrooms, truck access, stairs or lifts, travel time, removalist hours, packing and storage.`,
+      },
+      {
+        heading: "Compare quotes properly",
+        body: "Ask whether the quote includes call-out time, fuel, GST, stairs, heavy items, insurance, packing materials and waiting time before comparing movers.",
+      },
+      {
+        heading: "Budget beyond the truck",
+        body: "Renters should also allow for bond, rent in advance, cleaning, utility changes, overlap between homes and small replacement items after moving.",
+      },
+      {
+        heading: "Use the calculator",
+        body: "Use the moving cost calculator to test bedrooms, hours and extras, then keep written quotes so you can compare the same scope of work.",
+      },
+    ];
+  }
+
   if (guide.location) {
     return [
       {
@@ -258,6 +363,71 @@ export function guideSections(guide: Guide) {
     {
       heading: "When to get extra help",
       body: "If the amount is significant, the facts are disputed, or you feel pressured, contact your state or territory tenancy information service. This website provides general information only and is not a substitute for advice about your circumstances.",
+    },
+  ];
+}
+
+export function guideFaqs(guide: Guide) {
+  if (guide.slug.includes("break-lease")) {
+    return [
+      {
+        question: `Can I use this ${guide.title.toLowerCase()} page as a final legal amount?`,
+        answer: "No. It is a planning estimate only. Break lease outcomes can depend on local rules, lease terms, mitigation, evidence and timing.",
+      },
+      {
+        question: "What should I check before paying break lease costs?",
+        answer: "Ask for itemised costs, dates, invoices, advertising or reletting records, and an explanation of how the amount was calculated.",
+      },
+    ];
+  }
+
+  if (guide.slug.includes("cleaning") || guide.slug.includes("clean")) {
+    return [
+      {
+        question: "What should an end-of-lease cleaning quote include?",
+        answer: "It should clearly list rooms, bathrooms, kitchen detail, carpet, windows, furnished items, GST, exclusions and whether a return clean is included.",
+      },
+      {
+        question: "Can cleaning be deducted from my bond?",
+        answer: "Cleaning may be claimed in some situations, but the claim should be supported by evidence, condition records and a reasonable cost.",
+      },
+    ];
+  }
+
+  if (guide.slug.includes("rent") || guide.slug.includes("afford")) {
+    return [
+      {
+        question: "Is the 30% rent rule always right?",
+        answer: "No. It is only a benchmark. Your take-home pay, debts, transport, household costs and savings goals can make a lower or higher percentage feel different.",
+      },
+      {
+        question: "Should I include moving costs when checking affordability?",
+        answer: "Yes. Bond, rent in advance, removalists, cleaning and utility setup can create a large upfront cost before the weekly rent even starts.",
+      },
+    ];
+  }
+
+  if (guide.slug.includes("moving") || guide.slug.includes("removalist")) {
+    return [
+      {
+        question: "What affects moving costs the most?",
+        answer: "Bedrooms, access, stairs, parking, travel time, removalist hours, packing, storage, heavy items and timing usually drive the final cost.",
+      },
+      {
+        question: "Why do moving quotes vary so much?",
+        answer: "Quotes can include different assumptions about call-out time, GST, insurance, packing materials, stairs, waiting time and the number of movers.",
+      },
+    ];
+  }
+
+  return [
+    {
+      question: `Is ${guide.title} legal advice?`,
+      answer: "No. It is general information to help renters organise numbers and evidence before checking official sources or getting advice.",
+    },
+    {
+      question: "Which calculator should I use next?",
+      answer: "Use the related calculator shown on this page to turn the guide into a simple estimate you can compare with quotes, deductions or moving budgets.",
     },
   ];
 }
