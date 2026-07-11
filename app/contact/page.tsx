@@ -16,6 +16,22 @@ export default function ContactPage() {
       <p>
         For tenancy disputes, urgent legal questions or financial hardship, contact your state or territory tenancy authority or an independent support service.
       </p>
+      <h2>What to include</h2>
+      <p>
+        If you are reporting a correction, please include the page URL, the sentence or calculator result you are questioning, and any source that
+        helps us review it. If you are asking about a partnership or sponsored placement, include the organisation name, website and the type of
+        renter service involved.
+      </p>
+      <h2>What not to send</h2>
+      <p>
+        Please do not send full leases, tribunal documents, identity documents, bank details or private information about another person. This site
+        cannot act for renters, negotiate with agents or provide advice about a specific dispute.
+      </p>
+      <h2>Response expectations</h2>
+      <p>
+        BondRefund.online is a small independent website, so email replies may not be immediate. Calculator and guide corrections are prioritised
+        when they affect accuracy, clarity, privacy or advertising disclosure.
+      </p>
     </InfoPage>
   );
 }
