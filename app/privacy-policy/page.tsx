@@ -28,6 +28,26 @@ export default function PrivacyPolicyPage() {
       <p>
         Some links may become sponsored or affiliate links in future. If activated, sponsored links should be labelled and may generate revenue when users click, request a quote or sign up with a partner.
       </p>
+      <h2>Server logs</h2>
+      <p>
+        Like most websites, hosting and security providers may process basic technical information such as IP address, browser type, requested URL,
+        referrer, date, time and error logs. This information is used to operate the website, investigate faults and protect against abuse.
+      </p>
+      <h2>Cookies</h2>
+      <p>
+        Advertising, analytics or affiliate tools may use cookies or similar technologies if enabled. These tools can help measure traffic, prevent
+        fraud, personalise or limit ads and understand whether sponsored placements are useful.
+      </p>
+      <h2>Data minimisation</h2>
+      <p>
+        The site is designed to collect as little personal information as practical. Avoid entering private dispute details into any form unless it
+        is clearly necessary for the feature you are using.
+      </p>
+      <h2>Policy updates</h2>
+      <p>
+        This policy may be updated as the site adds analytics, advertising, affiliate relationships, email tools or new calculators. Material
+        changes should be reflected on this page.
+      </p>
     </InfoPage>
   );
 }
