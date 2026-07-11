@@ -54,9 +54,12 @@ export default async function CalculatorPage({ params }: Params) {
 
   const softwareSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "WebApplication",
     name: calculator.title,
     applicationCategory: "FinanceApplication",
+    browserRequirements: "Requires JavaScript in a modern web browser.",
+    inLanguage: "en-AU",
+    isAccessibleForFree: true,
     operatingSystem: "Web",
     url: `${site.url}/calculators/${calculator.slug}`,
     description: calculator.description,
@@ -64,6 +67,7 @@ export default async function CalculatorPage({ params }: Params) {
       "@type": "Offer",
       price: "0",
       priceCurrency: "AUD",
+      url: `${site.url}/calculators/${calculator.slug}`,
     },
   };
 
