@@ -17,7 +17,7 @@ const titles: Record<string, [string, string, string[], string?]> = {
   "can-landlord-charge-for-carpet-cleaning": ["Can a Landlord Charge for Carpet Cleaning?", "Carpet cleaning deductions, evidence and condition report checks.", ["end-of-lease-cleaning-calculator"]],
   "end-of-lease-cleaning-checklist": ["End of Lease Cleaning Checklist", "A room-by-room checklist for preparing a rental before handover.", ["end-of-lease-cleaning-calculator"]],
   "rental-bond-dispute-guide": ["Rental Bond Dispute Guide", "How to organise evidence and respond to disputed bond deductions.", ["bond-refund-calculator"]],
-  "break-lease-costs-australia": ["Break Lease Calculator Australia: Estimate Break Lease Costs", "Use the break lease calculator to estimate uncovered rent, advertising, reletting fees and other possible costs before you negotiate.", ["break-lease-calculator"]],
+  "break-lease-costs-australia": ["Break Lease Costs Australia", "Use the break lease calculator to estimate uncovered rent, advertising, reletting fees and other possible costs before you negotiate.", ["break-lease-calculator"]],
   "break-lease-calculator-guide": ["Break Lease Calculator Guide", "How to use a break lease calculator to estimate rent, reletting costs, advertising and other possible break lease costs.", ["break-lease-calculator"]],
   "break-lease-fee-calculator": ["Break Lease Fee Calculator", "Estimate possible break lease fees and separate fixed costs from vacancy-related rent exposure.", ["break-lease-calculator"]],
   "how-much-does-it-cost-to-break-a-lease": ["How Much Does It Cost to Break a Lease?", "A practical guide to the costs that can appear when a renter ends a lease early in Australia.", ["break-lease-calculator"]],
