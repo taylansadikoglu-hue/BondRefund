@@ -11,6 +11,15 @@ export const metadata: Metadata = {
 };
 
 export default function GuidesIndexPage() {
+  const featuredGuides = [
+    "how-to-get-your-bond-back-nsw",
+    "how-long-does-bond-refund-take",
+    "sydney-bond-refund-guide",
+    "sydney-moving-costs",
+  ]
+    .map((slug) => guides.find((guide) => guide.slug === slug))
+    .filter((guide): guide is (typeof guides)[number] => Boolean(guide));
+
   return (
     <main className="mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[1fr_320px]">
       <section>
@@ -19,6 +28,24 @@ export default function GuidesIndexPage() {
         <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
           Clear, general information to help renters organise evidence, estimate costs and prepare for moving.
         </p>
+        <div className="mt-8 rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+          <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Best places to start</p>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {featuredGuides.map((guide) =>
+              guide ? (
+                <Link
+                  className="focus-ring rounded-xl border border-[var(--line)] bg-slate-50 p-5 hover:border-[var(--brand)]"
+                  href={`/guides/${guide.slug}`}
+                  key={guide.slug}
+                >
+                  <span className="text-xs font-bold uppercase tracking-wide text-[var(--brand-dark)]">{guide.category}</span>
+                  <h2 className="mt-2 text-xl font-extrabold">{guide.title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{guide.description}</p>
+                </Link>
+              ) : null,
+            )}
+          </div>
+        </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {guides.map((guide) => (
             <Link className="focus-ring rounded-md border border-[var(--line)] bg-white p-5 shadow-sm hover:border-[var(--brand)]" href={`/guides/${guide.slug}`} key={guide.slug}>

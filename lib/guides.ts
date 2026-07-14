@@ -2,6 +2,8 @@ export type Guide = {
   slug: string;
   title: string;
   description: string;
+  metaTitle?: string;
+  metaDescription?: string;
   category: string;
   relatedCalculators: string[];
   location?: string;
@@ -138,6 +140,26 @@ export const guides: Guide[] = Object.entries(titles).map(([slug, [title, descri
   slug,
   title,
   description,
+  metaTitle:
+    slug === "how-to-get-your-bond-back-nsw"
+      ? "How to Get Your Bond Back in NSW | Bond Refund Guide"
+      : slug === "how-long-does-bond-refund-take"
+        ? "How Long Does a Bond Refund Take in Australia?"
+        : slug === "sydney-moving-costs"
+          ? "Sydney Moving Costs Guide | Plan a Rental Move"
+          : slug === "sydney-bond-refund-guide"
+            ? "Sydney Bond Refund Guide | Bond Back Checklist"
+            : undefined,
+  metaDescription:
+    slug === "how-to-get-your-bond-back-nsw"
+      ? "Learn how to get your bond back in NSW, what evidence to keep, and what to check before agreeing to deductions."
+      : slug === "how-long-does-bond-refund-take"
+        ? "See the usual bond refund timeline in Australia, what can slow it down, and what renters should prepare first."
+        : slug === "sydney-moving-costs"
+          ? "Estimate real Sydney moving costs, including removalists, packing, cleaning and the extras renters often miss."
+          : slug === "sydney-bond-refund-guide"
+            ? "A practical Sydney renter guide to getting your bond back, reducing deduction risk and preparing for final inspection."
+            : undefined,
   category: location
     ? "Local guides"
     : slug.includes("bond")
@@ -380,7 +402,7 @@ export function guideSections(guide: Guide) {
     return [
       {
         heading: `${guide.location} renter snapshot`,
-        body: `${guide.description} Local rent, moving and cleaning costs can vary by suburb, property size, access, parking and timing, so use the calculators as planning tools rather than fixed quotes.`,
+        body: `${guide.description} Local rent, moving and cleaning costs can vary by suburb, property size, access, parking and timing, so use the calculators as planning tools rather than fixed quotes. The point is to help you spot the likely cost before you reply to an agent or lock in a service.`,
       },
       {
         heading: "What to check locally",
@@ -400,7 +422,7 @@ export function guideSections(guide: Guide) {
   return [
     {
       heading: "Quick summary",
-      body: `${guide.description} Use this guide as a starting point, then check your lease, condition report and state or territory tenancy authority for your situation.`,
+      body: `${guide.description} Use this guide as a starting point, then check your lease, condition report and state or territory tenancy authority for your situation. If money is being claimed, a simple written timeline and clear photos usually help more than long arguments.`,
     },
     {
       heading: "What to gather",

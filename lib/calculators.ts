@@ -27,12 +27,12 @@ export const calculators: Calculator[] = [
     kind: "bond-refund",
     title: "Bond Refund Calculator",
     shortTitle: "Bond refund",
-    description: "Estimate how much of your rental bond may be returned after claimed deductions.",
-    metaTitle: "Bond Refund Calculator Australia | BondRefund.online",
-    metaDescription: "Estimate your rental bond refund after claimed deductions with a free Australian bond refund calculator.",
+    description: "Estimate how much of your rental bond you may get back after cleaning, damage, rent or other claimed deductions.",
+    metaTitle: "Bond Refund Calculator Australia | Estimate Your Bond Back",
+    metaDescription: "Use a free Australian bond refund calculator to estimate how much bond you may get back after claimed deductions.",
     example: "If you paid a $2,400 bond and the agent claims $350 in deductions, the estimated refund is $2,050.",
     guideText:
-      "Your refund usually depends on the bond paid, any agreed deductions, and the dispute process in your state or territory. Keep receipts, condition reports, emails and photos together before agreeing to deductions.",
+      "Your refund usually depends on the bond paid, the deductions being claimed, and the evidence on both sides. Use this as a planning estimate first, then compare the numbers with your condition report, photos, receipts and written messages before agreeing to any money being kept.",
     relatedGuides: ["how-long-does-bond-refund-take", "how-to-dispute-bond-deductions", "fair-wear-and-tear-australia"],
     faqs: [
       {
@@ -135,12 +135,12 @@ export const calculators: Calculator[] = [
     kind: "rental-affordability",
     title: "Rental Affordability Calculator",
     shortTitle: "Affordability",
-    description: "See rent as a percentage of annual income and get a simple affordability rating.",
+    description: "See whether a rent payment looks manageable by comparing it with annual household income in seconds.",
     metaTitle: "How Much Rent Can I Afford? | Australia Rent Calculator",
     metaDescription: "Calculate how much rent you can afford in Australia by comparing weekly rent with annual household income and a rent-to-income benchmark.",
     example: "A $550 weekly rent on an $85,000 annual income is about 33.6% of gross income.",
     guideText:
-      "A common rule of thumb is that rent above 30% of gross income can feel stretched, but personal debts, location and household size matter.",
+      "A common rule of thumb is that rent above 30% of gross income can feel stretched, but the real answer depends on debt, household size, commute costs and how much moving would cost instead. Use the result as a fast pressure test before applying or renewing.",
     relatedGuides: ["rent-affordability-guide", "first-time-renter-guide", "rental-application-costs"],
     faqs: [
       {

@@ -12,6 +12,72 @@ import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
 
+const pageUpgrades: Record<
+  string,
+  {
+    eyebrow: string;
+    heroTitle?: string;
+    heroBody: string;
+    introPoints: string[];
+    useCases: string[];
+    nextSteps: string[];
+    relatedLinks: { href: string; label: string }[];
+  }
+> = {
+  "rental-affordability-calculator": {
+    eyebrow: "Rent budget tool",
+    heroTitle: "Can you really afford this rent?",
+    heroBody:
+      "This page helps you pressure-test the rent before you apply, renew, or decide whether moving is the better option.",
+    introPoints: [
+      "See rent as a share of your yearly income",
+      "Get a simple comfort rating in seconds",
+      "Use it before signing, renewing or comparing suburbs",
+    ],
+    useCases: [
+      "You are comparing two rentals",
+      "You just got a rent increase",
+      "You want to know if moving may be cheaper overall",
+    ],
+    nextSteps: [
+      "Run the affordability check with combined household income if more than one person pays rent.",
+      "Compare the result with moving costs, bond needs and the new weekly budget.",
+      "If the rent feels stretched, review cheaper suburbs or negotiate before signing.",
+    ],
+    relatedLinks: [
+      { href: "/calculators/rent-increase-calculator", label: "Compare a rent increase" },
+      { href: "/calculators/moving-cost-calculator", label: "Estimate moving costs" },
+      { href: "/guides/rent-affordability-guide", label: "Read the affordability guide" },
+    ],
+  },
+  "bond-refund-calculator": {
+    eyebrow: "Bond back estimate",
+    heroTitle: "How much bond might you actually get back?",
+    heroBody:
+      "This calculator gives renters a fast estimate before replying to an agent, landlord or property manager about deductions.",
+    introPoints: [
+      "See the refund amount after claimed deductions",
+      "Use it before agreeing to cleaning or damage costs",
+      "Keep the number simple before you move into dispute mode",
+    ],
+    useCases: [
+      "You have been given a deduction amount and want to sense-check it",
+      "You are comparing multiple claimed costs before responding",
+      "You want to see whether the missing bond amount is small or serious",
+    ],
+    nextSteps: [
+      "Match every deduction against your entry report, exit photos and written messages.",
+      "Ask for itemised invoices or quotes if the amount feels vague or inflated.",
+      "If the number is larger than expected, read the dispute and wear-and-tear guides before responding.",
+    ],
+    relatedLinks: [
+      { href: "/guides/how-long-does-bond-refund-take", label: "See the bond timeline" },
+      { href: "/guides/how-to-get-your-bond-back-nsw", label: "Read the NSW bond guide" },
+      { href: "/guides/fair-wear-and-tear-australia", label: "Check wear and tear examples" },
+    ],
+  },
+};
+
 export function generateStaticParams() {
   return calculators.map((calculator) => ({ slug: calculator.slug }));
 }
@@ -110,9 +176,24 @@ export default async function CalculatorPage({ params }: Params) {
           <span>{calculator.title}</span>
         </nav>
         <header className="mt-6">
-          <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Free calculator</p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-950 md:text-5xl">{calculator.title}</h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{calculator.description}</p>
+          <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">
+            {pageUpgrades[calculator.slug]?.eyebrow ?? "Free calculator"}
+          </p>
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
+            {pageUpgrades[calculator.slug]?.heroTitle ?? calculator.title}
+          </h1>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
+            {pageUpgrades[calculator.slug]?.heroBody ?? calculator.description}
+          </p>
+          {pageUpgrades[calculator.slug] ? (
+            <div className="mt-6 grid gap-3 md:grid-cols-3">
+              {pageUpgrades[calculator.slug].introPoints.map((point) => (
+                <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
+                  {point}
+                </div>
+              ))}
+            </div>
+          ) : null}
         </header>
 
         <section className="mt-8">
@@ -121,6 +202,32 @@ export default async function CalculatorPage({ params }: Params) {
             {site.disclaimer}
           </p>
         </section>
+
+        {pageUpgrades[calculator.slug] ? (
+          <section className="mt-8 grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
+            <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+              <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Best for</p>
+              <div className="mt-4 grid gap-3">
+                {pageUpgrades[calculator.slug].useCases.map((item) => (
+                  <div key={item} className="rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+              <p className="text-sm font-bold uppercase tracking-wide text-emerald-800">Use the result well</p>
+              <div className="mt-4 grid gap-3">
+                {pageUpgrades[calculator.slug].nextSteps.map((step, index) => (
+                  <div key={step} className="rounded-xl bg-white/80 px-4 py-3 text-sm leading-6 text-slate-700">
+                    <strong className="mr-2 text-[var(--brand-dark)]">0{index + 1}</strong>
+                    {step}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="mt-8 rounded-md border border-emerald-200 bg-emerald-50 p-6">
           <h2 className="text-2xl font-extrabold text-slate-950">Quick answer</h2>
@@ -134,6 +241,23 @@ export default async function CalculatorPage({ params }: Params) {
           <h2>Example scenario</h2>
           <p>{calculator.example}</p>
         </section>
+
+        {pageUpgrades[calculator.slug] ? (
+          <section className="mt-10 rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Good next pages</p>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              {pageUpgrades[calculator.slug].relatedLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="focus-ring rounded-xl border border-[var(--line)] p-4 hover:border-[var(--brand)]"
+                >
+                  <span className="font-bold text-slate-950">{link.label}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <div className="mt-8">
           <AdSlot label="Sponsored content" format="fluid" />

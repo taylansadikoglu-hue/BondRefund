@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { HomeCountryExperience } from "@/components/HomeCountryExperience";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/lib/site";
@@ -83,6 +84,44 @@ export default function HomePage() {
                 <h3 className="text-lg font-extrabold text-slate-950">{faq.question}</h3>
                 <p className="mt-2 text-sm leading-7 text-slate-600">{faq.answer}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-4 pb-14">
+        <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+          <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Popular next clicks</p>
+          <h2 className="mt-2 text-3xl font-extrabold text-slate-950">Start with the pages renters use most</h2>
+          <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">
+            If you are trying to work out money, deductions or whether moving still makes sense, these are the best places to start.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                href: "/calculators/bond-refund-calculator",
+                title: "Bond refund calculator",
+                body: "Estimate how much bond may come back after claimed deductions.",
+              },
+              {
+                href: "/calculators/rental-affordability-calculator",
+                title: "Rental affordability calculator",
+                body: "Check whether the rent looks manageable before you apply or renew.",
+              },
+              {
+                href: "/guides/how-to-get-your-bond-back-nsw",
+                title: "How to get your bond back in NSW",
+                body: "Use a simple checklist before final inspection and deduction talks.",
+              },
+              {
+                href: "/guides/sydney-moving-costs",
+                title: "Sydney moving costs guide",
+                body: "See the extras renters often miss when comparing a move.",
+              },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} className="rounded-xl border border-[var(--line)] p-5 hover:border-[var(--brand)]">
+                <h3 className="text-lg font-extrabold text-slate-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+              </Link>
             ))}
           </div>
         </div>
