@@ -55,8 +55,8 @@ export const calculators: Calculator[] = [
     title: "Break Lease Calculator",
     shortTitle: "Break lease",
     description: "Estimate possible break lease costs using uncovered rent, advertising, reletting fees and other costs.",
-    metaTitle: "Break Lease Calculator Australia",
-    metaDescription: "Use a free break lease calculator to estimate uncovered rent, advertising, reletting fees and other possible break lease costs in Australia.",
+    metaTitle: "Break Lease Calculator Australia | Estimate Lease Exit Costs",
+    metaDescription: "Use a free Australian break lease calculator to estimate uncovered rent, advertising, reletting fees and other likely exit costs.",
     example: "If rent is $600 per week, two weeks are uncovered, and fees total $900, the estimated cost is $2,100.",
     guideText:
       "Break lease costs can vary by state, lease type and how quickly a replacement tenant is found. Use this estimate as a planning tool and check your local tenancy authority.",
@@ -190,8 +190,8 @@ export const calculators: Calculator[] = [
     title: "Bond Loan Calculator",
     shortTitle: "Bond loan",
     description: "Estimate total repayment and weekly repayment for a rental bond loan.",
-    metaTitle: "Bond Loan Calculator Australia | Repayment Estimate",
-    metaDescription: "Estimate rental bond loan repayments, total fees and weekly repayment over your chosen period.",
+    metaTitle: "Bond Loan Calculator Australia | Weekly Repayment Estimate",
+    metaDescription: "Estimate rental bond loan repayments, total fees and weekly repayment before you commit to a bond loan.",
     example: "A $2,000 bond loan repaid over 20 weeks with $120 fees is about $106 per week.",
     guideText:
       "Bond loans may include fees, interest or eligibility rules. Compare the total repayment with other options before applying.",
