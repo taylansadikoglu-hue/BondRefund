@@ -76,6 +76,58 @@ const pageUpgrades: Record<
       { href: "/guides/fair-wear-and-tear-australia", label: "Check wear and tear examples" },
     ],
   },
+  "break-lease-calculator": {
+    eyebrow: "Lease exit cost tool",
+    heroTitle: "What could breaking the lease really cost?",
+    heroBody:
+      "This calculator helps renters separate the scary headline from the likely real costs before agreeing to uncovered rent, reletting fees or advertising charges.",
+    introPoints: [
+      "Estimate uncovered rent and one-off fees separately",
+      "Use it before you accept a landlord or agent figure",
+      "Compare the exit cost with the cost of staying or moving later",
+    ],
+    useCases: [
+      "You need to leave early and want a clean first estimate",
+      "An agent has quoted a break lease amount and you want to sense-check it",
+      "You are comparing whether moving now is better than waiting",
+    ],
+    nextSteps: [
+      "Keep rent exposure separate from fixed charges like advertising or reletting.",
+      "Ask for dates, invoices and proof of reletting efforts if the amount feels high.",
+      "Compare the result with moving costs, cleaning and the cost of staying put for a bit longer.",
+    ],
+    relatedLinks: [
+      { href: "/guides/break-lease-costs-australia", label: "Read the Australia break lease guide" },
+      { href: "/guides/brisbane-break-lease-costs", label: "See a Brisbane example" },
+      { href: "/calculators/moving-cost-calculator", label: "Compare moving costs too" },
+    ],
+  },
+  "moving-cost-calculator": {
+    eyebrow: "Moving budget tool",
+    heroTitle: "How much could your move really cost?",
+    heroBody:
+      "This calculator helps renters budget for the full move, not just the truck, so the cheap new place does not become an expensive surprise.",
+    introPoints: [
+      "Estimate bedrooms, hours, distance and extras",
+      "Use it before signing or comparing suburbs",
+      "Include cleaning, access issues and storage if needed",
+    ],
+    useCases: [
+      "You are choosing between staying and moving",
+      "You need a simple budget before booking removalists",
+      "You want to compare quote ranges with your own assumptions",
+    ],
+    nextSteps: [
+      "Get written quotes and check if call-out time, fuel and GST are included.",
+      "Add a buffer for stairs, parking problems, lifts or delays on the day.",
+      "Compare the move cost with the rent difference over the next 6 to 12 months.",
+    ],
+    relatedLinks: [
+      { href: "/guides/moving-costs-australia", label: "Read the Australia moving guide" },
+      { href: "/guides/sydney-moving-costs", label: "See Sydney moving costs" },
+      { href: "/calculators/rental-affordability-calculator", label: "Check the new rent too" },
+    ],
+  },
 };
 
 export function generateStaticParams() {

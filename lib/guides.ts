@@ -276,6 +276,60 @@ const searchFocusedSections: Record<string, { heading: string; body: string }[]>
       body: "Enter weekly rent and annual household income in the rental affordability calculator, then add a moving cost estimate before applying for a property.",
     },
   ],
+  "how-to-get-your-bond-back-nsw": [
+    {
+      heading: "Start with the evidence, not the argument",
+      body: "Before discussing deductions, collect the NSW entry condition report, exit photos, cleaning receipts, emails and any final inspection notes. A simple evidence folder is often more useful than a long emotional reply."
+    },
+    {
+      heading: "Check each deduction one by one",
+      body: "Cleaning, damage, unpaid rent and replacement claims should be reviewed separately. Ask what each amount relates to and what proof supports it before agreeing to any money being kept."
+    },
+    {
+      heading: "Use the bond refund calculator first",
+      body: "A simple refund estimate helps you see whether the issue is small, moderate or worth pushing back on. That makes the conversation easier and clearer."
+    },
+    {
+      heading: "Keep the process simple",
+      body: "Write down the claimed amount, the reason given, and the evidence on both sides. Staying clear and organised usually works better than replying in anger."
+    },
+  ],
+  "how-to-get-your-bond-back-vic": [
+    {
+      heading: "Prepare the Victorian evidence first",
+      body: "Start with the entry condition report, exit photos, receipts and written messages. Those records make it easier to compare a claimed deduction with the actual property condition."
+    },
+    {
+      heading: "Do not accept vague amounts",
+      body: "If money is being kept, ask what the amount is for, whether there is an invoice or quote, and why the work was needed. A broad claim is not the same as a clear itemised one."
+    },
+    {
+      heading: "Estimate the refund before replying",
+      body: "Use the calculator to work out what should come back if the claim is right, then compare that with what you expected to receive."
+    },
+    {
+      heading: "Keep the conversation written",
+      body: "A short written summary of the issue, the amount and the evidence on each side can keep the process much calmer and clearer."
+    },
+  ],
+  "how-to-get-your-bond-back-qld": [
+    {
+      heading: "Keep Queensland bond records in one place",
+      body: "Put the entry report, exit photos, invoices, receipts and messages into one folder before the refund process gets messy."
+    },
+    {
+      heading: "Check the real reason for each claim",
+      body: "If cleaning, repairs or unpaid rent are mentioned, ask which amount belongs to which issue and what evidence supports it."
+    },
+    {
+      heading: "Use a simple refund estimate first",
+      body: "The calculator helps you understand the size of the deduction before you decide whether to accept it, question it or prepare for a dispute."
+    },
+    {
+      heading: "Slow down before agreeing",
+      body: "A rushed yes can be hard to unwind later. Make sure you understand the amount, the evidence and the actual impact on the bond refund first."
+    },
+  ],
   "brisbane-moving-costs": [
     {
       heading: "What changes moving costs in Brisbane",
@@ -292,6 +346,78 @@ const searchFocusedSections: Record<string, { heading: string; body: string }[]>
     {
       heading: "Get itemised quotes",
       body: "Ask whether the quote includes call-out time, fuel, stairs, heavy items, insurance, packing materials and GST before comparing movers.",
+    },
+  ],
+  "sydney-moving-costs": [
+    {
+      heading: "Sydney moves often cost more than the first quote",
+      body: "Parking limits, stairs, lifts, narrow access, storage, longer travel time and extra waiting can all turn a basic truck quote into a much bigger bill."
+    },
+    {
+      heading: "Budget beyond removalists",
+      body: "The truck is only one part of the move. Bond, rent overlap, end-of-lease cleaning, packing materials, key collection and utility changes can all affect the real cost."
+    },
+    {
+      heading: "Compare moving with staying",
+      body: "If you are moving because of rent, compare the move cost with the likely rent saving over the next 6 to 12 months. A cheaper rental can still be expensive upfront."
+    },
+    {
+      heading: "Use the calculator before booking",
+      body: "Estimate the move first, then compare written quotes against the same assumptions so you are judging like for like."
+    },
+  ],
+  "moving-costs-australia": [
+    {
+      heading: "Most renters underestimate the full move cost",
+      body: "They remember the truck quote but forget bond, rent in advance, overlap, cleaning, packing, storage and small setup costs at the new place."
+    },
+    {
+      heading: "The biggest cost is often time",
+      body: "Travel time, access problems, stairs, parking delays and packing can change a move far more than people expect from the first estimate."
+    },
+    {
+      heading: "Use the move cost as a decision number",
+      body: "If you are deciding whether to renew, move or break lease, compare the full moving cost with the likely savings or extra rent over the next year."
+    },
+    {
+      heading: "Use a range, not one perfect figure",
+      body: "Moving costs are variable, so a useful estimate should give you a planning number plus a sensible buffer."
+    },
+  ],
+  "melbourne-rent-increase-guide": [
+    {
+      heading: "Look at the annual cost, not just the weekly jump",
+      body: "A small weekly increase can still add a meaningful amount across a full year, especially once utilities, transport and other living costs are added."
+    },
+    {
+      heading: "Check the new rent against your actual budget",
+      body: "Compare the increase with household income, not just broad market talk. A rent rise that looks normal on paper can still feel too tight in real life."
+    },
+    {
+      heading: "Moving is not free",
+      body: "A cheaper rental can still cost more upfront once removalists, cleaning, bond and rent overlap are included. That is why moving costs should be part of the decision."
+    },
+    {
+      heading: "Run both numbers before you decide",
+      body: "Use the rent increase calculator for the new weekly cost, then compare it with affordability and likely moving expenses."
+    },
+  ],
+  "brisbane-break-lease-costs": [
+    {
+      heading: "Separate rent exposure from one-off charges",
+      body: "The most important question is often how long the property stayed vacant or whether there was a real gap before a new tenant moved in. Fixed fees should still be checked separately."
+    },
+    {
+      heading: "Ask for proof before accepting the number",
+      body: "If a landlord or agent gives you a break lease figure, ask how it was calculated, what dates were used and what invoices or advertising records support it."
+    },
+    {
+      heading: "Compare the cost with your alternatives",
+      body: "Sometimes the better question is not just what leaving costs, but whether leaving now is still cheaper than staying for longer and moving later."
+    },
+    {
+      heading: "Use the calculator to keep the discussion clear",
+      body: "A simple estimate helps you stay practical. It is much easier to question a number calmly when you already understand its main parts."
     },
   ],
   "bond-cleaning-cost-guide": [

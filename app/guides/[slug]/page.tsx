@@ -67,6 +67,50 @@ const guideUpgrades: Record<
       { href: "/guides/fair-wear-and-tear-australia", label: "See wear and tear examples" },
     ],
   },
+  "how-to-get-your-bond-back-vic": {
+    eyebrow: "Victoria bond guide",
+    heroTitle: "How to give yourself the best chance of getting your bond back in Victoria",
+    heroBody:
+      "This page helps Victorian renters prepare before the final inspection, organise proof clearly, and avoid saying yes to deductions too early.",
+    quickChecks: [
+      "Keep entry reports, exit photos and cleaning receipts together",
+      "Ask for a clear breakdown before agreeing to money being kept",
+      "Use a simple estimate first so the deduction size is obvious",
+    ],
+    actionTitle: "What to do next",
+    actions: [
+      "Check the claimed issue against your entry condition report and exit photos.",
+      "Ask for itemised evidence, invoices or quotes if the amount feels vague.",
+      "Use the bond refund calculator so you can see the real impact on the final refund.",
+    ],
+    extraLinks: [
+      { href: "/calculators/bond-refund-calculator", label: "Estimate your bond back" },
+      { href: "/guides/how-to-dispute-bond-deductions", label: "Read the dispute guide" },
+      { href: "/guides/melbourne-bond-refund-guide", label: "See the Melbourne renter guide" },
+    ],
+  },
+  "how-to-get-your-bond-back-qld": {
+    eyebrow: "Queensland bond guide",
+    heroTitle: "How to give yourself the best chance of getting your bond back in Queensland",
+    heroBody:
+      "This page helps Queensland renters keep the process simple: organise evidence, understand the claimed deduction, and do not rush into agreeing before the numbers make sense.",
+    quickChecks: [
+      "Take clear final photos before keys are returned",
+      "Keep cleaning receipts, emails and condition reports in one folder",
+      "Check any claim against a simple refund estimate first",
+    ],
+    actionTitle: "Best next moves",
+    actions: [
+      "Match each claimed cost to real evidence, not just a broad statement from the agent.",
+      "Ask for invoices or quotes if cleaning, repairs or rent are being deducted.",
+      "Use the calculator to see whether the missing bond amount is small, serious or worth disputing further.",
+    ],
+    extraLinks: [
+      { href: "/calculators/bond-refund-calculator", label: "Estimate your bond back" },
+      { href: "/guides/rental-bond-dispute-guide", label: "Read the dispute guide" },
+      { href: "/guides/brisbane-bond-refund-guide", label: "See the Brisbane renter guide" },
+    ],
+  },
   "how-long-does-bond-refund-take": {
     eyebrow: "Bond timeline guide",
     heroTitle: "How long does a bond refund usually take?",
@@ -109,6 +153,50 @@ const guideUpgrades: Record<
       { href: "/calculators/bond-refund-calculator", label: "Check your refund amount" },
       { href: "/guides/sydney-end-of-lease-cleaning-costs", label: "Compare Sydney cleaning costs" },
       { href: "/guides/how-to-get-your-bond-back-nsw", label: "Read the NSW bond checklist" },
+    ],
+  },
+  "brisbane-break-lease-costs": {
+    eyebrow: "Brisbane lease exit guide",
+    heroTitle: "What could breaking a lease in Brisbane really cost?",
+    heroBody:
+      "This page helps Brisbane renters estimate the likely cost before accepting uncovered rent, advertising charges or reletting fees at face value.",
+    quickChecks: [
+      "Separate uncovered rent from one-off fees",
+      "Check whether the property was actually re-let quickly",
+      "Compare the break cost with moving and staying costs",
+    ],
+    actionTitle: "Before you agree",
+    actions: [
+      "Ask for dates, invoices and evidence of reletting activity if the figure feels high.",
+      "Use the break lease calculator with your own assumptions first, not just the agent number.",
+      "Compare the result with moving cost, bond and cleaning costs before deciding the best next step.",
+    ],
+    extraLinks: [
+      { href: "/calculators/break-lease-calculator", label: "Estimate break lease costs" },
+      { href: "/calculators/moving-cost-calculator", label: "Compare moving costs" },
+      { href: "/guides/break-lease-costs-australia", label: "Read the national guide" },
+    ],
+  },
+  "melbourne-rent-increase-guide": {
+    eyebrow: "Melbourne rent guide",
+    heroTitle: "Should you accept this rent increase in Melbourne?",
+    heroBody:
+      "This page helps Melbourne renters compare the new rent with income, moving costs and the real cost of staying versus leaving.",
+    quickChecks: [
+      "Check the yearly cost, not just the weekly jump",
+      "Compare the increase with your real household budget",
+      "Do not ignore moving costs when a cheaper place looks tempting",
+    ],
+    actionTitle: "Use it well",
+    actions: [
+      "Run the rent increase calculator so the weekly, monthly and annual jump is clear.",
+      "Check the result against affordability and likely moving costs in Melbourne.",
+      "If the increase feels too high, compare the cost of staying with the cost of moving over the next year.",
+    ],
+    extraLinks: [
+      { href: "/calculators/rent-increase-calculator", label: "Compare the rent increase" },
+      { href: "/calculators/rental-affordability-calculator", label: "Check affordability" },
+      { href: "/guides/melbourne-moving-costs", label: "See Melbourne moving costs" },
     ],
   },
 };

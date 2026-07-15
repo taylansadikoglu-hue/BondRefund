@@ -28,13 +28,14 @@ const homepageFaqs = [
 ];
 
 export const metadata: Metadata = {
-  title: "Bond refund, rent increase and moving cost calculators",
-  description: "Simple renter calculators and guides for bond refunds, rent increases, moving costs, break lease costs and end-of-lease cleaning.",
+  title: "Bond Refund Calculator, Rent Increase & Moving Cost Tools Australia",
+  description:
+    "Simple Australian renter calculators and guides for bond refunds, rent increases, break lease costs, moving costs and rental affordability.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "BondRefund.online | Bond, rent and moving calculators",
     description:
-      "Simple renter calculators and guides for bond refunds, rent increases, moving costs, break lease costs and end-of-lease cleaning.",
+      "Simple Australian renter calculators and guides for bond refunds, rent increases, moving costs, break lease costs and rental affordability.",
     url: site.url,
     type: "website",
   },
@@ -108,14 +109,14 @@ export default function HomePage() {
                 body: "Check whether the rent looks manageable before you apply or renew.",
               },
               {
-                href: "/guides/how-to-get-your-bond-back-nsw",
-                title: "How to get your bond back in NSW",
-                body: "Use a simple checklist before final inspection and deduction talks.",
+                href: "/calculators/break-lease-calculator",
+                title: "Break lease calculator",
+                body: "Estimate uncovered rent, fees and the real cost of leaving early.",
               },
               {
-                href: "/guides/sydney-moving-costs",
-                title: "Sydney moving costs guide",
-                body: "See the extras renters often miss when comparing a move.",
+                href: "/guides/how-to-get-your-bond-back-nsw",
+                title: "How to get your bond back in NSW",
+                body: "Use a simple NSW checklist before final inspection and deduction talks.",
               },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="rounded-xl border border-[var(--line)] p-5 hover:border-[var(--brand)]">
