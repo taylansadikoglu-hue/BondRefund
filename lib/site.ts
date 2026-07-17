@@ -2,7 +2,7 @@ export const site = {
   name: "BondRefund.online",
   url: "https://bondrefund.online",
   description:
-    "Simple renter calculators and guides for bond, rent and moving costs.",
+    "Simple Australian renter calculators and guides for bond refunds, rent increases, moving costs, break lease costs and rental affordability.",
   disclaimer: "This is general information only and not legal or financial advice.",
 };
 
@@ -18,6 +18,8 @@ export const calculatorLinks = [
 
 export const legalLinks = [
   { href: "/about", label: "About" },
+  { href: "/methodology", label: "Methodology" },
+  { href: "/editorial-policy", label: "Editorial Policy" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms" },

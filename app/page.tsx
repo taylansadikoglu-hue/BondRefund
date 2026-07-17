@@ -127,6 +127,64 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <section className="mx-auto max-w-6xl px-4 pb-14">
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            {
+              title: "Built for real renter problems",
+              body: "The site focuses on bond deductions, moving costs, rent increases, break lease costs and affordability checks because those are the questions renters actually need help with.",
+            },
+            {
+              title: "Simple first, then deeper help",
+              body: "Each page aims to give a quick answer first, then the calculator, then the practical checks and next steps that help a renter use the result properly.",
+            },
+            {
+              title: "Independent and transparent",
+              body: "The site is independent, not a tenancy authority or real estate agency, and it explains where calculators stop and official rules or evidence need to take over.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+              <h2 className="text-xl font-extrabold text-slate-950">{item.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="mx-auto max-w-6xl px-4 pb-14">
+        <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+          <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">How the site works</p>
+          <h2 className="mt-2 text-3xl font-extrabold text-slate-950">Start with the number. Then check the records.</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "1. Use the closest calculator",
+                body: "Pick the page that matches the exact problem: bond refund, rent increase, break lease, moving cost, cleaning or affordability.",
+              },
+              {
+                title: "2. Turn the issue into a simple estimate",
+                body: "Use the result to understand the rough size of the problem before you agree to anything or spend money.",
+              },
+              {
+                title: "3. Check your evidence and local rules",
+                body: "Compare the estimate with your lease, photos, receipts, quotes, emails and official state information before making a decision.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-xl border border-[var(--line)] bg-slate-50 p-5">
+                <h3 className="text-lg font-extrabold text-slate-950">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-600">{item.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link className="focus-ring rounded-md border border-[var(--line)] bg-white px-4 py-3 font-bold text-slate-900 hover:border-[var(--brand)]" href="/methodology">
+              Read the methodology
+            </Link>
+            <Link className="focus-ring rounded-md border border-[var(--line)] bg-white px-4 py-3 font-bold text-slate-900 hover:border-[var(--brand)]" href="/editorial-policy">
+              Read the editorial policy
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
