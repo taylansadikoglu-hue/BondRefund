@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/AdSlot";
-import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { CalculatorClient } from "@/components/CalculatorClient";
 import { EmailCapture } from "@/components/EmailCapture";
 import { JsonLd } from "@/components/JsonLd";
@@ -156,6 +155,17 @@ export default async function CalculatorPage({ params }: Params) {
   const { slug } = await params;
   const calculator = getCalculator(slug);
   if (!calculator) notFound();
+  const upgrade = pageUpgrades[calculator.slug];
+  const defaultUseCases = [
+    "You want a simple estimate before replying to an agent or landlord",
+    "You need to compare the cost with staying, moving or disputing",
+    "You want the main money drivers written in plain English",
+  ];
+  const defaultNextSteps = [
+    "Enter the simplest numbers first, then adjust extras only if they apply.",
+    "Keep photos, quotes, invoices, emails and condition reports together.",
+    "Check official state or territory guidance before relying on the result for a dispute.",
+  ];
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -229,23 +239,25 @@ export default async function CalculatorPage({ params }: Params) {
         </nav>
         <header className="mt-6">
           <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">
-            {pageUpgrades[calculator.slug]?.eyebrow ?? "Free calculator"}
+            {upgrade?.eyebrow ?? "Free renter calculator"}
           </p>
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
-            {pageUpgrades[calculator.slug]?.heroTitle ?? calculator.title}
+            {upgrade?.heroTitle ?? calculator.title}
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
-            {pageUpgrades[calculator.slug]?.heroBody ?? calculator.description}
+            {upgrade?.heroBody ?? calculator.description}
           </p>
-          {pageUpgrades[calculator.slug] ? (
-            <div className="mt-6 grid gap-3 md:grid-cols-3">
-              {pageUpgrades[calculator.slug].introPoints.map((point) => (
-                <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
-                  {point}
-                </div>
-              ))}
-            </div>
-          ) : null}
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            {(upgrade?.introPoints ?? [
+              "Fast estimate before you reply",
+              "Built for renters, not agents",
+              "General guidance with clear limits",
+            ]).map((point) => (
+              <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
+                {point}
+              </div>
+            ))}
+          </div>
         </header>
 
         <section className="mt-8">
@@ -255,31 +267,29 @@ export default async function CalculatorPage({ params }: Params) {
           </p>
         </section>
 
-        {pageUpgrades[calculator.slug] ? (
-          <section className="mt-8 grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
-              <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Best for</p>
-              <div className="mt-4 grid gap-3">
-                {pageUpgrades[calculator.slug].useCases.map((item) => (
-                  <div key={item} className="rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700">
-                    {item}
-                  </div>
-                ))}
-              </div>
+        <section className="mt-8 grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Best for</p>
+            <div className="mt-4 grid gap-3">
+              {(upgrade?.useCases ?? defaultUseCases).map((item) => (
+                <div key={item} className="rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700">
+                  {item}
+                </div>
+              ))}
             </div>
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-              <p className="text-sm font-bold uppercase tracking-wide text-emerald-800">Use the result well</p>
-              <div className="mt-4 grid gap-3">
-                {pageUpgrades[calculator.slug].nextSteps.map((step, index) => (
-                  <div key={step} className="rounded-xl bg-white/80 px-4 py-3 text-sm leading-6 text-slate-700">
-                    <strong className="mr-2 text-[var(--brand-dark)]">0{index + 1}</strong>
-                    {step}
-                  </div>
-                ))}
-              </div>
+          </div>
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+            <p className="text-sm font-bold uppercase tracking-wide text-emerald-800">Use the result well</p>
+            <div className="mt-4 grid gap-3">
+              {(upgrade?.nextSteps ?? defaultNextSteps).map((step, index) => (
+                <div key={step} className="rounded-xl bg-white/80 px-4 py-3 text-sm leading-6 text-slate-700">
+                  <strong className="mr-2 text-[var(--brand-dark)]">0{index + 1}</strong>
+                  {step}
+                </div>
+              ))}
             </div>
-          </section>
-        ) : null}
+          </div>
+        </section>
 
         <section className="mt-8 rounded-md border border-emerald-200 bg-emerald-50 p-6">
           <h2 className="text-2xl font-extrabold text-slate-950">Quick answer</h2>
@@ -292,13 +302,25 @@ export default async function CalculatorPage({ params }: Params) {
           <p>{calculator.guideText}</p>
           <h2>Example scenario</h2>
           <p>{calculator.example}</p>
+          <h2>What can change the real answer</h2>
+          <p>
+            The estimate can change when the lease wording, property condition, local rules, evidence quality, timing, quote detail or payment
+            arrangement changes. Use the calculator as a first pass, then check the documents and official guidance that apply to your situation.
+          </p>
+          <h2>What to keep before you respond</h2>
+          <ul>
+            <li>Entry and exit condition reports.</li>
+            <li>Photos or videos with dates where possible.</li>
+            <li>Receipts, quotes, invoices and written messages.</li>
+            <li>Your lease, rent ledger and key handover date.</li>
+          </ul>
         </section>
 
-        {pageUpgrades[calculator.slug] ? (
+        {upgrade ? (
           <section className="mt-10 rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
             <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Good next pages</p>
             <div className="mt-4 grid gap-3 md:grid-cols-3">
-              {pageUpgrades[calculator.slug].relatedLinks.map((link) => (
+              {upgrade.relatedLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -347,8 +369,15 @@ export default async function CalculatorPage({ params }: Params) {
       <aside className="grid content-start gap-5">
         <AdSlot />
         <EmailCapture />
-        <AffiliateCTA />
-        <AdSlot label="Sponsored placement" />
+        <section className="rounded-md border border-[var(--line)] bg-white p-5 shadow-sm">
+          <h2 className="text-xl font-extrabold">Use official rules too</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            This page helps with planning, but rental rules can vary by state or territory. Use official tenancy guidance before making a serious decision.
+          </p>
+          <Link className="mt-4 inline-flex font-bold text-[var(--brand-dark)] hover:underline" href="/methodology">
+            Read how estimates work
+          </Link>
+        </section>
       </aside>
     </main>
   );

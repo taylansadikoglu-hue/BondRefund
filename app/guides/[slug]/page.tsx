@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/AdSlot";
-import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { EmailCapture } from "@/components/EmailCapture";
 import { JsonLd } from "@/components/JsonLd";
 import { getCalculator } from "@/lib/calculators";
@@ -227,6 +226,17 @@ export default async function GuidePage({ params }: Params) {
   const { slug } = await params;
   const guide = getGuide(slug);
   if (!guide) notFound();
+  const upgrade = guideUpgrades[guide.slug];
+  const defaultChecks = [
+    "Read the lease or notice before replying.",
+    "Keep photos, emails, receipts and condition reports together.",
+    "Use a calculator to understand the rough money impact.",
+  ];
+  const defaultActions = [
+    "Turn the issue into a clear dollar estimate.",
+    "Ask for written evidence if a cost or claim feels vague.",
+    "Check official local guidance if the amount is large or disputed.",
+  ];
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -299,56 +309,71 @@ export default async function GuidePage({ params }: Params) {
         </nav>
         <header className="mt-6">
           <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">
-            {guideUpgrades[guide.slug]?.eyebrow ?? guide.category}
+            {upgrade?.eyebrow ?? guide.category}
           </p>
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
-            {guideUpgrades[guide.slug]?.heroTitle ?? guide.title}
+            {upgrade?.heroTitle ?? guide.title}
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
-            {guideUpgrades[guide.slug]?.heroBody ?? guide.description}
+            {upgrade?.heroBody ?? guide.description}
           </p>
-          {guideUpgrades[guide.slug] ? (
-            <div className="mt-6 grid gap-3 md:grid-cols-3">
-              {guideUpgrades[guide.slug].quickChecks.map((point) => (
-                <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
-                  {point}
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            {(upgrade?.quickChecks ?? defaultChecks).map((point) => (
+              <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
+                {point}
+              </div>
+            ))}
+          </div>
+        </header>
+
+        <section className="mt-8 grid gap-4 md:grid-cols-[1.05fr_0.95fr]">
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+            <p className="text-sm font-bold uppercase tracking-wide text-emerald-800">
+              {upgrade?.actionTitle ?? "What to do next"}
+            </p>
+            <div className="mt-4 grid gap-3">
+              {(upgrade?.actions ?? defaultActions).map((step, index) => (
+                <div key={step} className="rounded-xl bg-white/80 px-4 py-3 text-sm leading-6 text-slate-700">
+                  <strong className="mr-2 text-[var(--brand-dark)]">0{index + 1}</strong>
+                  {step}
                 </div>
               ))}
             </div>
-          ) : null}
-        </header>
+          </div>
+          <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Useful next clicks</p>
+            <div className="mt-4 grid gap-3">
+              {(upgrade?.extraLinks ?? guide.relatedCalculators.map((relatedSlug) => {
+                const calculator = getCalculator(relatedSlug);
+                return calculator ? { href: `/calculators/${calculator.slug}`, label: calculator.title } : null;
+              }).filter((link): link is { href: string; label: string } => Boolean(link))).map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="focus-ring rounded-xl border border-[var(--line)] px-4 py-3 text-sm font-semibold text-slate-700 hover:border-[var(--brand)]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        {guideUpgrades[guide.slug] ? (
-          <section className="mt-8 grid gap-4 md:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-              <p className="text-sm font-bold uppercase tracking-wide text-emerald-800">
-                {guideUpgrades[guide.slug].actionTitle}
-              </p>
-              <div className="mt-4 grid gap-3">
-                {guideUpgrades[guide.slug].actions.map((step, index) => (
-                  <div key={step} className="rounded-xl bg-white/80 px-4 py-3 text-sm leading-6 text-slate-700">
-                    <strong className="mr-2 text-[var(--brand-dark)]">0{index + 1}</strong>
-                    {step}
-                  </div>
-                ))}
+        <section className="mt-8 rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+          <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">What to prepare</p>
+          <div className="mt-4 grid gap-3 md:grid-cols-4">
+            {[
+              "Lease or notice",
+              "Photos and condition reports",
+              "Receipts, quotes or invoices",
+              "Emails and key dates",
+            ].map((item) => (
+              <div key={item} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
+                {item}
               </div>
-            </div>
-            <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
-              <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Useful next clicks</p>
-              <div className="mt-4 grid gap-3">
-                {guideUpgrades[guide.slug].extraLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="focus-ring rounded-xl border border-[var(--line)] px-4 py-3 text-sm font-semibold text-slate-700 hover:border-[var(--brand)]"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        ) : null}
+            ))}
+          </div>
+        </section>
 
         <section className="content-prose mt-8 rounded-md border border-[var(--line)] bg-white p-6">
           <h2>Quick answer</h2>
@@ -405,7 +430,15 @@ export default async function GuidePage({ params }: Params) {
       <aside className="grid content-start gap-5">
         <AdSlot />
         <EmailCapture />
-        <AffiliateCTA />
+        <section className="rounded-md border border-[var(--line)] bg-white p-5 shadow-sm">
+          <h2 className="text-xl font-extrabold">General information only</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            Rental rules can vary by location and situation. Use this guide to prepare, then check official tenancy information if money is being disputed.
+          </p>
+          <Link className="mt-4 inline-flex font-bold text-[var(--brand-dark)] hover:underline" href="/disclaimer">
+            Read the disclaimer
+          </Link>
+        </section>
       </aside>
     </main>
   );
