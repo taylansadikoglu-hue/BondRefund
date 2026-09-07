@@ -6,6 +6,8 @@ import { EmailCapture } from "@/components/EmailCapture";
 import { JsonLd } from "@/components/JsonLd";
 import { getCalculator } from "@/lib/calculators";
 import { getGuide, guides, guideFaqs, guideSections } from "@/lib/guides";
+import { isIndexableGuide } from "@/lib/index-policy";
+import { officialResourceForSlug } from "@/lib/official-resources";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -213,6 +215,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: guide.metaTitle ?? guide.title,
     description: guide.metaDescription ?? guide.description,
     alternates: { canonical: `/guides/${guide.slug}` },
+    robots: isIndexableGuide(guide.slug) ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
       title: guide.metaTitle ?? guide.title,
       description: guide.metaDescription ?? guide.description,
@@ -227,6 +230,7 @@ export default async function GuidePage({ params }: Params) {
   const guide = getGuide(slug);
   if (!guide) notFound();
   const upgrade = guideUpgrades[guide.slug];
+  const officialResource = officialResourceForSlug(guide.slug);
   const defaultChecks = [
     "Read the lease or notice before replying.",
     "Keep photos, emails, receipts and condition reports together.",
@@ -252,6 +256,8 @@ export default async function GuidePage({ params }: Params) {
       "@type": "Organization",
       name: site.name,
     },
+    datePublished: "2026-07-08",
+    dateModified: isIndexableGuide(guide.slug) ? "2026-09-08" : "2026-07-08",
   };
   const faqs = guideFaqs(guide);
   const faqSchema = {
@@ -317,6 +323,7 @@ export default async function GuidePage({ params }: Params) {
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
             {upgrade?.heroBody ?? guide.description}
           </p>
+          <p className="mt-3 text-sm font-semibold text-slate-500">Published by {site.name} · General information · Sources checked 8 September 2026</p>
           <div className="mt-6 grid gap-3 md:grid-cols-3">
             {(upgrade?.quickChecks ?? defaultChecks).map((point) => (
               <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
@@ -430,6 +437,14 @@ export default async function GuidePage({ params }: Params) {
       <aside className="grid content-start gap-5">
         <AdSlot />
         <EmailCapture />
+        <section className="rounded-md border border-emerald-200 bg-emerald-50 p-5 shadow-sm">
+          <p className="text-xs font-bold uppercase tracking-wide text-emerald-800">Official source</p>
+          <h2 className="mt-2 text-xl font-extrabold">{officialResource.title}</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">{officialResource.body}</p>
+          <a className="focus-ring mt-4 inline-flex font-bold text-[var(--brand-dark)] underline" href={officialResource.href} rel="noopener noreferrer" target="_blank">
+            Check {officialResource.region} guidance
+          </a>
+        </section>
         <section className="rounded-md border border-[var(--line)] bg-white p-5 shadow-sm">
           <h2 className="text-xl font-extrabold">General information only</h2>
           <p className="mt-2 text-sm leading-6 text-slate-600">

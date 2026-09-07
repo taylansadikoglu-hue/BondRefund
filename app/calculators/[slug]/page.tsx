@@ -7,6 +7,7 @@ import { EmailCapture } from "@/components/EmailCapture";
 import { JsonLd } from "@/components/JsonLd";
 import { calculators, getCalculator } from "@/lib/calculators";
 import { getGuide } from "@/lib/guides";
+import { isIndexableGuide } from "@/lib/index-policy";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -340,7 +341,7 @@ export default async function CalculatorPage({ params }: Params) {
         <section className="mt-10">
           <h2 className="text-2xl font-extrabold">Related guides</h2>
           <div className="mt-4 grid gap-3 md:grid-cols-3">
-            {calculator.relatedGuides.map((slug) => {
+            {calculator.relatedGuides.filter(isIndexableGuide).map((slug) => {
               const guide = getGuide(slug);
               if (!guide) return null;
               return (
@@ -376,6 +377,9 @@ export default async function CalculatorPage({ params }: Params) {
           </p>
           <Link className="mt-4 inline-flex font-bold text-[var(--brand-dark)] hover:underline" href="/methodology">
             Read how estimates work
+          </Link>
+          <Link className="mt-3 block font-bold text-[var(--brand-dark)] hover:underline" href="/renter-resources">
+            Check official renter sources
           </Link>
         </section>
       </aside>

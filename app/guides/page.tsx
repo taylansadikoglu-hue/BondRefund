@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
 import { EmailCapture } from "@/components/EmailCapture";
 import { guides } from "@/lib/guides";
+import { isIndexableGuide } from "@/lib/index-policy";
 
 export const metadata: Metadata = {
   title: "Australian Renter Guides",
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function GuidesIndexPage() {
+  const publicGuides = guides.filter((guide) => isIndexableGuide(guide.slug));
   const featuredGuides = [
     "how-to-get-your-bond-back-nsw",
     "how-long-does-bond-refund-take",
@@ -105,7 +107,7 @@ export default function GuidesIndexPage() {
           ))}
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {guides.map((guide) => (
+          {publicGuides.map((guide) => (
             <Link className="focus-ring rounded-md border border-[var(--line)] bg-white p-5 shadow-sm hover:border-[var(--brand)]" href={`/guides/${guide.slug}`} key={guide.slug}>
               <span className="text-xs font-bold uppercase tracking-wide text-[var(--brand-dark)]">{guide.category}</span>
               <h2 className="mt-2 text-xl font-extrabold">{guide.title}</h2>

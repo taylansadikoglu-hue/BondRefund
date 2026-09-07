@@ -20,6 +20,7 @@ export const legalLinks = [
   { href: "/about", label: "About" },
   { href: "/methodology", label: "Methodology" },
   { href: "/editorial-policy", label: "Editorial Policy" },
+  { href: "/renter-resources", label: "Official Renter Sources" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms" },
