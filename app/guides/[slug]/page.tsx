@@ -22,6 +22,7 @@ const guideUpgrades: Record<
     actionTitle: string;
     actions: string[];
     extraLinks: { href: string; label: string }[];
+    officialFacts?: { label: string; body: string }[];
   }
 > = {
   "sydney-moving-costs": {
@@ -67,6 +68,24 @@ const guideUpgrades: Record<
       { href: "/guides/how-to-dispute-bond-deductions", label: "Read the dispute guide" },
       { href: "/guides/fair-wear-and-tear-australia", label: "See wear and tear examples" },
     ],
+    officialFacts: [
+      {
+        label: "You can start the claim",
+        body: "NSW Government guidance says a renter can claim through Rental Bonds Online after the tenancy ends. You do not need to wait for the landlord to release it.",
+      },
+      {
+        label: "The response window matters",
+        body: "The landlord or agent generally has up to 14 days to accept or dispute a renter's claim. Watch your email, SMS and claim status during that period.",
+      },
+      {
+        label: "Ask for the evidence",
+        body: "For a claim made without your agreement, NSW guidance says the landlord or agent must provide the exit condition report and supporting estimates, quotes, invoices or receipts within 7 days of making the claim.",
+      },
+      {
+        label: "Agreed online claims can be quick",
+        body: "When an online claim is accepted and the details are correct, NSW guidance says the refund should usually reach the nominated account within two business days.",
+      },
+    ],
   },
   "how-to-get-your-bond-back-vic": {
     eyebrow: "Victoria bond guide",
@@ -89,6 +108,24 @@ const guideUpgrades: Record<
       { href: "/guides/how-to-dispute-bond-deductions", label: "Read the dispute guide" },
       { href: "/guides/melbourne-bond-refund-guide", label: "See the Melbourne renter guide" },
     ],
+    officialFacts: [
+      {
+        label: "Claims go through the RTBA",
+        body: "Victorian bond claims are made through the Residential Tenancies Bond Authority. A renter named on the bond can start a claim after the rental agreement ends.",
+      },
+      {
+        label: "A renter-started claim has a notice period",
+        body: "The RTBA gives the other parties 14 days to contest a renter-started claim through the stated dispute process. The bond can be repaid sooner if everyone agrees.",
+      },
+      {
+        label: "The provider also has a deadline",
+        body: "Consumer Affairs Victoria says rental providers must start their claim within 14 days of the agreement ending unless a renter starts the claim first.",
+      },
+      {
+        label: "Agreed claims are usually faster",
+        body: "Once everyone accepts an RTBA claim, Consumer Affairs Victoria says repayment is usually made within one business day.",
+      },
+    ],
   },
   "how-to-get-your-bond-back-qld": {
     eyebrow: "Queensland bond guide",
@@ -110,6 +147,24 @@ const guideUpgrades: Record<
       { href: "/calculators/bond-refund-calculator", label: "Estimate your bond back" },
       { href: "/guides/rental-bond-dispute-guide", label: "Read the dispute guide" },
       { href: "/guides/brisbane-bond-refund-guide", label: "See the Brisbane renter guide" },
+    ],
+    officialFacts: [
+      {
+        label: "Either side can request the refund",
+        body: "Queensland RTA guidance says a party to the bond can lodge a refund request without every other party signing when agreement has not been reached.",
+      },
+      {
+        label: "Undisputed money can be released",
+        body: "When parties disagree, the RTA can refund the undisputed amount and send the other parties a Notice of claim for the disputed part.",
+      },
+      {
+        label: "You have 14 days to respond",
+        body: "A person receiving a Notice of claim has 14 days to dispute, agree or take no action. If no action is taken, the RTA pays according to the original request after that period.",
+      },
+      {
+        label: "Keep your address current",
+        body: "The RTA warns that notices may go to the last address it holds. Update your forwarding details so you do not miss a claim deadline.",
+      },
     ],
   },
   "how-long-does-bond-refund-take": {
@@ -381,6 +436,32 @@ export default async function GuidePage({ params }: Params) {
             ))}
           </div>
         </section>
+
+        {upgrade?.officialFacts ? (
+          <section className="mt-8 rounded-2xl border border-sky-200 bg-sky-50 p-6">
+            <p className="text-sm font-bold uppercase tracking-wide text-sky-800">Official process at a glance</p>
+            <h2 className="mt-2 text-2xl font-extrabold text-slate-950">Deadlines and steps worth knowing</h2>
+            <p className="mt-3 max-w-3xl leading-7 text-slate-700">
+              These points summarise the official {officialResource.region} guidance linked on this page. They were checked on 8 September 2026. Follow the official page if your claim is disputed or a deadline is close.
+            </p>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              {upgrade.officialFacts.map((fact) => (
+                <div key={fact.label} className="rounded-xl border border-sky-200 bg-white p-4">
+                  <h3 className="font-bold text-slate-950">{fact.label}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">{fact.body}</p>
+                </div>
+              ))}
+            </div>
+            <a
+              className="focus-ring mt-5 inline-flex font-bold text-[var(--brand-dark)] underline"
+              href={officialResource.href}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Read the full official {officialResource.region} guidance
+            </a>
+          </section>
+        ) : null}
 
         <section className="content-prose mt-8 rounded-md border border-[var(--line)] bg-white p-6">
           <h2>Quick answer</h2>
