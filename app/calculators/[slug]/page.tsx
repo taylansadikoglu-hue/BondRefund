@@ -22,6 +22,8 @@ const pageUpgrades: Record<
     useCases: string[];
     nextSteps: string[];
     relatedLinks: { href: string; label: string }[];
+    resultItems: { label: string; body: string }[];
+    officialSource?: { label: string; href: string };
   }
 > = {
   "rental-affordability-calculator": {
@@ -49,6 +51,15 @@ const pageUpgrades: Record<
       { href: "/calculators/moving-cost-calculator", label: "Estimate moving costs" },
       { href: "/guides/rent-affordability-guide", label: "Read the affordability guide" },
     ],
+    resultItems: [
+      { label: "Rent share", body: "The percentage of gross household income going to rent before tax and other bills." },
+      { label: "Weekly room", body: "The income left before tax after the weekly rent amount is set aside." },
+      { label: "Pressure rating", body: "A simple planning signal—not an approval rule or proof that a home is affordable." },
+    ],
+    officialSource: {
+      label: "ASIC Moneysmart budget planner",
+      href: "https://moneysmart.gov.au/budgeting/budget-planner",
+    },
   },
   "bond-refund-calculator": {
     eyebrow: "Bond back estimate",
@@ -74,6 +85,11 @@ const pageUpgrades: Record<
       { href: "/guides/how-long-does-bond-refund-take", label: "See the bond timeline" },
       { href: "/guides/how-to-get-your-bond-back-nsw", label: "Read the NSW bond guide" },
       { href: "/guides/fair-wear-and-tear-australia", label: "Check wear and tear examples" },
+    ],
+    resultItems: [
+      { label: "Bond paid", body: "The full bond amount held before any agreed or decided deductions." },
+      { label: "Claimed deductions", body: "Cleaning, rent, repairs or other amounts entered for a first-pass comparison." },
+      { label: "Estimated refund", body: "Bond paid minus the entered claims; it does not decide whether each claim is valid." },
     ],
   },
   "break-lease-calculator": {
@@ -101,6 +117,11 @@ const pageUpgrades: Record<
       { href: "/guides/brisbane-break-lease-costs", label: "See a Brisbane example" },
       { href: "/calculators/moving-cost-calculator", label: "Compare moving costs too" },
     ],
+    resultItems: [
+      { label: "Uncovered rent", body: "Weekly rent multiplied by the vacancy period you entered." },
+      { label: "One-off costs", body: "Advertising, reletting and other entered costs shown separately from rent exposure." },
+      { label: "Planning total", body: "A scenario for discussion—not a ruling on what can legally be charged." },
+    ],
   },
   "moving-cost-calculator": {
     eyebrow: "Moving budget tool",
@@ -127,6 +148,112 @@ const pageUpgrades: Record<
       { href: "/guides/sydney-moving-costs", label: "See Sydney moving costs" },
       { href: "/calculators/rental-affordability-calculator", label: "Check the new rent too" },
     ],
+    resultItems: [
+      { label: "Removalist estimate", body: "Hourly rate multiplied by time, then adjusted for the distance assumptions entered." },
+      { label: "Extras", body: "Packing, storage and other costs you add rather than leaving them as moving-day surprises." },
+      { label: "Planning range", body: "A buffer around the estimate because access, delays and quote inclusions vary." },
+    ],
+  },
+  "rent-increase-calculator": {
+    eyebrow: "Rent change checker",
+    heroTitle: "What does the rent increase cost over a full year?",
+    heroBody:
+      "Turn a weekly rent rise into weekly, monthly and annual figures before you decide whether to accept it, question it or compare the cost of moving.",
+    introPoints: [
+      "See the weekly and yearly increase together",
+      "Check the percentage change in seconds",
+      "Compare staying with the real cost of moving",
+    ],
+    useCases: [
+      "You received a rent increase notice",
+      "You are comparing a renewal with another property",
+      "You need one clear number for a household budget discussion",
+    ],
+    nextSteps: [
+      "Check the notice date and the rules for your state or territory.",
+      "Compare the new rent with similar local properties and your household budget.",
+      "If moving is an option, include bond, cleaning, removalists and rent overlap before deciding.",
+    ],
+    relatedLinks: [
+      { href: "/guides/rent-increase-rules-australia", label: "Check rent increase rules" },
+      { href: "/calculators/rental-affordability-calculator", label: "Test the new rent" },
+      { href: "/calculators/moving-cost-calculator", label: "Compare moving costs" },
+    ],
+    resultItems: [
+      { label: "Weekly increase", body: "New weekly rent minus current weekly rent." },
+      { label: "Monthly equivalent", body: "The annual increase divided by 12—not simply four weekly increases." },
+      { label: "Annual impact", body: "The weekly increase multiplied by 52, useful for comparing staying and moving." },
+    ],
+    officialSource: {
+      label: "Official state and territory renter contacts",
+      href: "/renter-resources",
+    },
+  },
+  "end-of-lease-cleaning-calculator": {
+    eyebrow: "Cleaning quote checker",
+    heroTitle: "What might an end-of-lease clean cost?",
+    heroBody:
+      "Build a practical cleaning range from the property size and the work actually needed, then compare quotes line by line before booking or accepting a deduction.",
+    introPoints: [
+      "Start with bedrooms and bathrooms",
+      "Add carpet, furniture and condition only when relevant",
+      "Compare quote inclusions—not just the final price",
+    ],
+    useCases: [
+      "You need a budget before requesting cleaner quotes",
+      "You want to compare two quotes with different inclusions",
+      "An agent has claimed a cleaning deduction and you need a sense-check",
+    ],
+    nextSteps: [
+      "Ask each cleaner to itemise carpet, oven, windows, walls, balconies and GST.",
+      "Confirm whether a return clean is included if the agent identifies missed work.",
+      "Keep the invoice, entry report, exit photos and any re-clean messages together.",
+    ],
+    relatedLinks: [
+      { href: "/guides/end-of-lease-cleaning-cost", label: "Read the cleaning cost guide" },
+      { href: "/guides/end-of-lease-cleaning-checklist", label: "Use the room checklist" },
+      { href: "/calculators/bond-refund-calculator", label: "Check the bond impact" },
+    ],
+    resultItems: [
+      { label: "Base clean", body: "The starting range for the property size entered." },
+      { label: "Added work", body: "Carpet, furnished rooms, extra bathrooms and condition adjustments." },
+      { label: "Quote range", body: "A planning range for comparison; actual local quotes and inclusions can differ." },
+    ],
+  },
+  "bond-loan-calculator": {
+    eyebrow: "Bond loan repayment tool",
+    heroTitle: "What would a bond loan really cost each week?",
+    heroBody:
+      "Turn the amount borrowed, fees and repayment period into a simple total and weekly estimate before agreeing to a private loan or comparing official assistance.",
+    introPoints: [
+      "See repayment and total cost separately",
+      "Add known fees instead of hiding them",
+      "Compare the loan with state-based bond assistance first",
+    ],
+    useCases: [
+      "You need help covering bond before the old bond is returned",
+      "You are comparing a private bond loan with official assistance",
+      "You want to know whether repayments fit beside the new rent",
+    ],
+    nextSteps: [
+      "Check whether your state or territory offers a bond loan or grant before using private credit.",
+      "Compare the total repayment, not only the weekly amount.",
+      "Add new rent, rent in advance and moving costs to the same budget.",
+    ],
+    relatedLinks: [
+      { href: "/guides/bond-loans-explained", label: "Understand bond loans" },
+      { href: "/guides/rental-application-costs", label: "Plan move-in costs" },
+      { href: "/calculators/rental-affordability-calculator", label: "Check rent affordability" },
+    ],
+    resultItems: [
+      { label: "Amount borrowed", body: "The bond funding shortfall entered before fees or repayments." },
+      { label: "Total repayment", body: "Borrowed amount plus the fees and charges included in the scenario." },
+      { label: "Weekly repayment", body: "The total divided across the repayment weeks entered for budgeting." },
+    ],
+    officialSource: {
+      label: "Official state and territory renter contacts",
+      href: "/renter-resources",
+    },
   },
 };
 
@@ -267,6 +394,37 @@ export default async function CalculatorPage({ params }: Params) {
             {site.disclaimer}
           </p>
         </section>
+
+        {upgrade ? (
+          <section className="mt-8 rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold uppercase tracking-wide text-[var(--brand-dark)]">Read your result</p>
+            <h2 className="mt-2 text-2xl font-extrabold text-slate-950">What the numbers mean</h2>
+            <div className="mt-5 grid gap-3 md:grid-cols-3">
+              {upgrade.resultItems.map((item) => (
+                <div key={item.label} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <h3 className="font-bold text-slate-950">{item.label}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
+                </div>
+              ))}
+            </div>
+            {upgrade.officialSource ? (
+              upgrade.officialSource.href.startsWith("http") ? (
+                <a
+                  className="mt-5 inline-flex font-bold text-[var(--brand-dark)] hover:underline"
+                  href={upgrade.officialSource.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Check the official source: {upgrade.officialSource.label}
+                </a>
+              ) : (
+                <Link className="mt-5 inline-flex font-bold text-[var(--brand-dark)] hover:underline" href={upgrade.officialSource.href}>
+                  Check the official source: {upgrade.officialSource.label}
+                </Link>
+              )
+            ) : null}
+          </section>
+        ) : null}
 
         <section className="mt-8 grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
