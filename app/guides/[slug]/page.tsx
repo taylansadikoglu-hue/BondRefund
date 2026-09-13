@@ -47,6 +47,182 @@ const guideUpgrades: Record<
       { href: "/guides/end-of-lease-cleaning-checklist", label: "Use the cleaning checklist" },
     ],
   },
+  "fair-wear-and-tear-australia": {
+    eyebrow: "Wear and tear guide",
+    heroTitle: "Is it fair wear and tear, or renter damage?",
+    heroBody:
+      "Use the age, starting condition, length of the tenancy and normal use of the item to organise the facts before agreeing to a bond deduction.",
+    quickChecks: [
+      "Old and gradually worn is different from sudden or careless damage",
+      "The entry report and dated photos show where the condition started",
+      "A claimed replacement cost still needs evidence and context",
+    ],
+    actionTitle: "Check the claim calmly",
+    actions: [
+      "Compare the issue with the entry report and your final photos.",
+      "Write down the item's age, original condition and how the change happened.",
+      "Ask for an itemised cost, invoice or quote before accepting a deduction.",
+    ],
+    extraLinks: [
+      { href: "/guides/normal-wear-and-tear-examples", label: "See practical examples" },
+      { href: "/calculators/bond-refund-calculator", label: "Estimate the refund impact" },
+      { href: "/guides/how-to-dispute-bond-deductions", label: "Prepare a deduction response" },
+    ],
+  },
+  "end-of-lease-cleaning-checklist": {
+    eyebrow: "Room-by-room cleaning guide",
+    heroTitle: "A final cleaning checklist that protects your time and your proof",
+    heroBody:
+      "Work through the rental one area at a time, photograph the finished condition and keep any professional-cleaning invoice with the exit report.",
+    quickChecks: [
+      "Use the entry condition as the starting point, not a brand-new-home standard",
+      "Photograph each room after the work is finished",
+      "Check carpet, oven, windows and outdoor areas separately",
+    ],
+    actionTitle: "Finish the clean in the right order",
+    actions: [
+      "Remove belongings and rubbish before doing the detailed clean.",
+      "Complete kitchens, bathrooms, floors, windows and outdoor areas from a written list.",
+      "Take dated final photos and save invoices before returning the keys.",
+    ],
+    extraLinks: [
+      { href: "/calculators/end-of-lease-cleaning-calculator", label: "Estimate the cleaning cost" },
+      { href: "/guides/end-of-lease-photo-checklist", label: "Take the right final photos" },
+      { href: "/guides/how-to-prepare-for-final-inspection", label: "Prepare for final inspection" },
+    ],
+  },
+  "rental-bond-dispute-guide": {
+    eyebrow: "Bond dispute guide",
+    heroTitle: "Turn a bond disagreement into a clear evidence file",
+    heroBody:
+      "A useful response links each claimed deduction to the entry condition, final condition, dates, messages and actual cost. This guide helps you organise that before a deadline passes.",
+    quickChecks: [
+      "Record the amount and reason for every claimed deduction",
+      "Keep the entry report, exit photos and messages together",
+      "Check the official deadline for your state or territory",
+    ],
+    actionTitle: "Build the response",
+    actions: [
+      "Ask for an itemised claim and the evidence supporting each amount.",
+      "Match each issue with the relevant condition report, photo, receipt or message.",
+      "Use the official bond authority or tribunal process if agreement is not possible.",
+    ],
+    extraLinks: [
+      { href: "/guides/rental-bond-refund-letter-template", label: "Use the letter template" },
+      { href: "/guides/landlord-deduction-examples", label: "Check common deduction examples" },
+      { href: "/calculators/bond-refund-calculator", label: "Calculate the amount in dispute" },
+    ],
+  },
+  "break-lease-costs-australia": {
+    eyebrow: "Break-lease cost guide",
+    heroTitle: "Work out what leaving early could cost before you commit",
+    heroBody:
+      "Separate rent exposure, reletting or advertising charges, moving, cleaning and the new-home cash requirement. Then compare leaving now with staying longer.",
+    quickChecks: [
+      "The lease, state rules and date it ends can change the calculation",
+      "Vacancy-related rent should use real dates rather than a vague total",
+      "Moving and new-bond costs sit outside the agent's lease-exit figure",
+    ],
+    actionTitle: "Make the decision with a full number",
+    actions: [
+      "Read the break clause and ask for a written itemised estimate.",
+      "Run a low, likely and high timing scenario in the calculator.",
+      "Add moving, cleaning, rent overlap and the cash needed for the next rental.",
+    ],
+    extraLinks: [
+      { href: "/calculators/break-lease-calculator", label: "Estimate break-lease costs" },
+      { href: "/calculators/moving-cost-calculator", label: "Add the moving cost" },
+      { href: "/guides/breaking-lease-without-penalty", label: "Check possible exceptions" },
+    ],
+  },
+  "rent-affordability-guide": {
+    eyebrow: "Rent affordability guide",
+    heroTitle: "Can this rent fit your real weekly budget?",
+    heroBody:
+      "Start with take-home income, then allow for bills, transport, food, debt, children, savings and irregular costs. A percentage is a warning light, not a personal approval decision.",
+    quickChecks: [
+      "Use income that actually reaches the household bank account",
+      "Add regular bills and irregular yearly costs before judging the spare amount",
+      "Test the budget after a rent rise or loss of one income",
+    ],
+    actionTitle: "Run a safer affordability check",
+    actions: [
+      "Enter the household's normal take-home income and proposed rent.",
+      "List essential costs and a realistic buffer for irregular expenses.",
+      "Compare the result with a cheaper rent, a different suburb or a shared home.",
+    ],
+    extraLinks: [
+      { href: "/calculators/rental-affordability-calculator", label: "Check rent affordability" },
+      { href: "/calculators/rent-increase-calculator", label: "Measure a rent increase" },
+      { href: "/guides/moving-costs-australia", label: "Include the cost of moving" },
+    ],
+  },
+  "how-much-rent-can-i-afford-australia": {
+    eyebrow: "Rent budget guide",
+    heroTitle: "How much rent can you afford without guessing?",
+    heroBody:
+      "Use your normal take-home pay and real household costs to find a range that leaves room for food, bills, transport, debt, savings and surprises.",
+    quickChecks: [
+      "Gross salary is not the money available for rent",
+      "A second income only helps if it is stable and genuinely shared",
+      "Bond, advance rent and moving costs affect the first-month decision",
+    ],
+    actionTitle: "Find a workable rent range",
+    actions: [
+      "Start with average take-home income across several normal pay periods.",
+      "Subtract essential spending and a basic emergency buffer.",
+      "Test the remaining rent against a bad month, not only the best month.",
+    ],
+    extraLinks: [
+      { href: "/calculators/rental-affordability-calculator", label: "Find your rent range" },
+      { href: "/guides/30-percent-rent-rule-australia", label: "Understand the 30% rule" },
+      { href: "/guides/rental-application-costs", label: "Plan upfront rental costs" },
+    ],
+  },
+  "sydney-end-of-lease-cleaning-costs": {
+    eyebrow: "Sydney cleaning-cost guide",
+    heroTitle: "Plan a Sydney end-of-lease clean before comparing quotes",
+    heroBody:
+      "Build the job from bedrooms, bathrooms, kitchen, carpet, windows, balconies, furniture and condition so every cleaner is pricing the same work.",
+    quickChecks: [
+      "Apartment access, parking and lifts can affect time and price",
+      "Carpet, windows and oven work may be separate extras",
+      "Final photos and an invoice help if cleaning is later questioned",
+    ],
+    actionTitle: "Get a quote you can understand",
+    actions: [
+      "Send the same room and condition details to each cleaner.",
+      "Ask for inclusions, exclusions, GST and return-clean terms in writing.",
+      "Photograph the completed work before keys are returned.",
+    ],
+    extraLinks: [
+      { href: "/calculators/end-of-lease-cleaning-calculator", label: "Estimate the cleaning range" },
+      { href: "/guides/end-of-lease-cleaning-checklist", label: "Use the room checklist" },
+      { href: "/guides/how-to-get-your-bond-back-nsw", label: "Prepare the NSW bond claim" },
+    ],
+  },
+  "brisbane-moving-costs": {
+    eyebrow: "Brisbane moving guide",
+    heroTitle: "Build a Brisbane moving budget that includes the hidden lines",
+    heroBody:
+      "Removalist time is only the start. Include travel, access, packing, cleaning, storage, utility changes, bond, advance rent and overlap before choosing the move date.",
+    quickChecks: [
+      "Long travel, stairs and difficult parking can extend a quoted job",
+      "Bond and rent overlap can be larger than the moving invoice",
+      "A written list of inclusions makes quotes easier to compare",
+    ],
+    actionTitle: "Plan the move in layers",
+    actions: [
+      "Estimate removalist hours, travel and access at both homes.",
+      "Add packing, cleaning, storage, utilities and likely rent overlap.",
+      "Keep a buffer for delays, extra work and last-minute supplies.",
+    ],
+    extraLinks: [
+      { href: "/calculators/moving-cost-calculator", label: "Estimate the full move" },
+      { href: "/guides/moving-house-checklist", label: "Use the moving checklist" },
+      { href: "/calculators/rental-affordability-calculator", label: "Check the new rent" },
+    ],
+  },
   "how-to-get-your-bond-back-nsw": {
     eyebrow: "NSW bond guide",
     heroTitle: "How to give yourself the best chance of getting your bond back in NSW",
@@ -444,7 +620,7 @@ export default async function GuidePage({ params }: Params) {
       name: site.name,
     },
     datePublished: "2026-07-08",
-    dateModified: isIndexableGuide(guide.slug) ? "2026-09-08" : "2026-07-08",
+    dateModified: isIndexableGuide(guide.slug) ? "2026-09-13" : "2026-07-08",
   };
   const faqs = guideFaqs(guide);
   const faqSchema = {
@@ -510,7 +686,7 @@ export default async function GuidePage({ params }: Params) {
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
             {upgrade?.heroBody ?? guide.description}
           </p>
-          <p className="mt-3 text-sm font-semibold text-slate-500">Published by {site.name} · General information · Sources checked 8 September 2026</p>
+          <p className="mt-3 text-sm font-semibold text-slate-500">Published by {site.name} · General information · Page reviewed 13 September 2026</p>
           <div className="mt-6 grid gap-3 md:grid-cols-3">
             {(upgrade?.quickChecks ?? defaultChecks).map((point) => (
               <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">
