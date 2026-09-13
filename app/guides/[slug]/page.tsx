@@ -255,6 +255,138 @@ const guideUpgrades: Record<
       { href: "/guides/melbourne-moving-costs", label: "See Melbourne moving costs" },
     ],
   },
+  "melbourne-moving-costs": {
+    eyebrow: "Melbourne moving guide",
+    heroTitle: "Plan the full cost of moving in Melbourne",
+    heroBody:
+      "A removalist quote is only one line in the moving budget. Use this guide to include access, packing, cleaning, storage, rent overlap and the cost of getting the new home ready.",
+    quickChecks: [
+      "Apartment lifts, loading access and parking can change removalist time",
+      "Bond, rent in advance and overlap can be larger than the truck cost",
+      "Written quote inclusions matter more than one cheap hourly rate",
+    ],
+    actionTitle: "Build a safer moving budget",
+    actions: [
+      "List the fixed costs first: bond, advance rent, cleaning and booked services.",
+      "Ask movers about travel time, minimum hours, stairs, lifts, parking and GST.",
+      "Add a buffer for delays, extra boxes and a longer handover than planned.",
+    ],
+    extraLinks: [
+      { href: "/calculators/moving-cost-calculator", label: "Estimate the full move" },
+      { href: "/guides/melbourne-end-of-lease-cleaning-costs", label: "Plan the final clean" },
+      { href: "/calculators/rental-affordability-calculator", label: "Check the new rent" },
+    ],
+  },
+  "moving-house-checklist": {
+    eyebrow: "Moving checklist",
+    heroTitle: "A moving-house checklist built around money, proof and timing",
+    heroBody:
+      "Use this checklist from the moment you accept a new rental until the old keys are returned. It keeps the budget, bookings, condition evidence and address changes in one order.",
+    quickChecks: [
+      "Book the move only after checking access at both properties",
+      "Photograph the old home before cleaners or agents re-enter",
+      "Keep enough cash for bond, rent overlap and last-minute costs",
+    ],
+    actionTitle: "Work through it in order",
+    actions: [
+      "Confirm dates, access, keys, utilities and the final-inspection plan.",
+      "Book removalists and cleaning with written prices and inclusions.",
+      "Save condition reports, final photos, invoices and key-return proof together.",
+    ],
+    extraLinks: [
+      { href: "/calculators/moving-cost-calculator", label: "Build the moving budget" },
+      { href: "/guides/end-of-lease-photo-checklist", label: "Take the right photos" },
+      { href: "/guides/how-to-prepare-for-final-inspection", label: "Prepare for inspection" },
+    ],
+  },
+  "melbourne-end-of-lease-cleaning-costs": {
+    eyebrow: "Melbourne cleaning guide",
+    heroTitle: "Compare Melbourne end-of-lease cleaning quotes properly",
+    heroBody:
+      "Use the property size and actual condition to build a planning range, then check whether carpet, oven, windows, balconies, furnished items and return cleans are really included.",
+    quickChecks: [
+      "The cheapest quote may exclude carpet, windows or the oven",
+      "Apartment access and parking can affect time and call-out costs",
+      "A bond claim should still be checked against condition evidence",
+    ],
+    actionTitle: "Before you book or agree",
+    actions: [
+      "Send every cleaner the same property details and requested inclusions.",
+      "Ask whether GST, equipment, carpet and a return clean are included.",
+      "Keep the invoice and final photos in case cleaning is later claimed from bond.",
+    ],
+    extraLinks: [
+      { href: "/calculators/end-of-lease-cleaning-calculator", label: "Estimate the cleaning range" },
+      { href: "/guides/end-of-lease-cleaning-checklist", label: "Use the room checklist" },
+      { href: "/calculators/bond-refund-calculator", label: "Check any bond claim" },
+    ],
+  },
+  "brisbane-end-of-lease-cleaning-costs": {
+    eyebrow: "Brisbane cleaning guide",
+    heroTitle: "Plan a Brisbane bond clean without paying for vague extras",
+    heroBody:
+      "Build a simple range from bedrooms, bathrooms, carpet, furniture and condition, then compare every quote against the same checklist before choosing a cleaner.",
+    quickChecks: [
+      "Confirm whether carpet and pest treatment are separate items",
+      "Ask what a return-clean promise actually covers",
+      "Keep photos and receipts before discussing a bond deduction",
+    ],
+    actionTitle: "Make quotes comparable",
+    actions: [
+      "List rooms, carpet, appliances, balconies and furnished items in writing.",
+      "Ask each cleaner for inclusions, exclusions, GST and possible extra fees.",
+      "Compare any later agent claim with the exit condition and the work invoiced.",
+    ],
+    extraLinks: [
+      { href: "/calculators/end-of-lease-cleaning-calculator", label: "Estimate the cleaning range" },
+      { href: "/guides/can-landlord-charge-for-carpet-cleaning", label: "Check carpet claims" },
+      { href: "/guides/how-to-get-your-bond-back-qld", label: "Read the Queensland bond steps" },
+    ],
+  },
+  "melbourne-break-lease-costs": {
+    eyebrow: "Melbourne lease exit guide",
+    heroTitle: "Estimate Melbourne break-lease costs before agreeing to a total",
+    heroBody:
+      "Separate vacancy-related rent from advertising, reletting and moving costs so you can ask what each amount covers and compare leaving now with staying longer.",
+    quickChecks: [
+      "Vacancy time and one-off charges should be shown separately",
+      "Dates, invoices and reletting activity make a claim easier to check",
+      "Moving and cleaning costs still sit outside the lease-exit estimate",
+    ],
+    actionTitle: "Check the claim step by step",
+    actions: [
+      "Enter your own rent and timing assumptions before using an agent total.",
+      "Ask for an itemised explanation and supporting dates or documents.",
+      "Compare leaving now with rent, moving and cleaning costs under a later exit.",
+    ],
+    extraLinks: [
+      { href: "/calculators/break-lease-calculator", label: "Estimate the exit cost" },
+      { href: "/guides/breaking-lease-without-penalty", label: "Check possible exceptions" },
+      { href: "/calculators/moving-cost-calculator", label: "Add the moving cost" },
+    ],
+  },
+  "moving-costs-australia": {
+    eyebrow: "Australia moving-cost guide",
+    heroTitle: "What should an Australian moving budget actually include?",
+    heroBody:
+      "Use one budget for removalists, access, packing, cleaning, storage, utilities, bond, advance rent and rent overlap. That gives you a fairer comparison between staying and moving.",
+    quickChecks: [
+      "Hourly quotes can exclude travel, minimum time or access charges",
+      "Move-in cash needs can be much larger than the removalist invoice",
+      "A buffer matters when timing, lifts, parking or keys go wrong",
+    ],
+    actionTitle: "Build the number in layers",
+    actions: [
+      "Start with removalist time, travel and known extras.",
+      "Add bond, advance rent, cleaning, storage, utilities and overlap.",
+      "Compare written quotes using the same list of inclusions and assumptions.",
+    ],
+    extraLinks: [
+      { href: "/calculators/moving-cost-calculator", label: "Build your moving estimate" },
+      { href: "/guides/moving-house-checklist", label: "Use the moving checklist" },
+      { href: "/calculators/rental-affordability-calculator", label: "Check the new rental budget" },
+    ],
+  },
 };
 
 export function generateStaticParams() {
