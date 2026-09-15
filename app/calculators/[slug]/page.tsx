@@ -210,7 +210,7 @@ const pageUpgrades: Record<
       "Keep the invoice, entry report, exit photos and any re-clean messages together.",
     ],
     relatedLinks: [
-      { href: "/guides/end-of-lease-cleaning-cost", label: "Read the cleaning cost guide" },
+      { href: "/guides/sydney-end-of-lease-cleaning-costs", label: "See a detailed cleaning-cost example" },
       { href: "/guides/end-of-lease-cleaning-checklist", label: "Use the room checklist" },
       { href: "/calculators/bond-refund-calculator", label: "Check the bond impact" },
     ],
@@ -241,8 +241,8 @@ const pageUpgrades: Record<
       "Add new rent, rent in advance and moving costs to the same budget.",
     ],
     relatedLinks: [
-      { href: "/guides/bond-loans-explained", label: "Understand bond loans" },
-      { href: "/guides/rental-application-costs", label: "Plan move-in costs" },
+      { href: "/guides/rent-affordability-guide", label: "Check the full rental budget" },
+      { href: "/guides/moving-costs-australia", label: "Plan move-in costs" },
       { href: "/calculators/rental-affordability-calculator", label: "Check rent affordability" },
     ],
     resultItems: [

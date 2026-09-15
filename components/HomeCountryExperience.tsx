@@ -10,14 +10,18 @@ import { calculators } from "@/lib/calculators";
 import { countryExperiences, type CountryCode } from "@/lib/country-experience";
 import { useCountryPreference } from "@/lib/country-preference";
 import { guides } from "@/lib/guides";
+import { isIndexableGuide } from "@/lib/index-policy";
 
 export function HomeCountryExperience() {
   const { country, setCountry, ready } = useCountryPreference("AU");
   const detected = country;
 
   const experience = countryExperiences[country];
-  const localGuides = useMemo(() => guides.filter((guide) => guide.category === "Local guides").slice(0, 6), []);
-  const starterGuides = useMemo(() => guides.slice(0, 8), []);
+  const localGuides = useMemo(
+    () => guides.filter((guide) => isIndexableGuide(guide.slug) && guide.category === "Local guides").slice(0, 6),
+    [],
+  );
+  const starterGuides = useMemo(() => guides.filter((guide) => isIndexableGuide(guide.slug)).slice(0, 8), []);
 
   return (
     <>

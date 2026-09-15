@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
 import { calculators } from "@/lib/calculators";
 import { guides } from "@/lib/guides";
+import { isIndexableGuide } from "@/lib/index-policy";
 
 export function GET() {
   const topCalculators = calculators
@@ -8,6 +9,7 @@ export function GET() {
     .join("\n");
 
   const topGuides = guides
+    .filter((guide) => isIndexableGuide(guide.slug))
     .map((guide) => `- ${guide.title}: ${site.url}/guides/${guide.slug}`)
     .join("\n");
 

@@ -31,7 +31,7 @@ export default function GuidesIndexPage() {
     {
       title: "Moving and cost planning",
       body: "Pages for moving quotes, budget checks, cleaning costs and the real cost of changing property.",
-      slugs: ["moving-costs-australia", "sydney-moving-costs", "brisbane-moving-costs", "end-of-lease-cleaning-cost"],
+      slugs: ["moving-costs-australia", "sydney-moving-costs", "brisbane-moving-costs", "end-of-lease-cleaning-checklist"],
     },
     {
       title: "Rent pressure and lease exits",
