@@ -23,7 +23,7 @@ const homepageFaqs = [
   {
     question: "Which countries does BondRefund.online support?",
     answer:
-      "The site starts with Australia and also provides renter-friendly calculator wording for the United States and the United Kingdom.",
+      "BondRefund.online currently supports Australian renters. State and territory rules can differ, so each estimate should be checked against your lease and the relevant tenancy authority.",
   },
 ];
 
