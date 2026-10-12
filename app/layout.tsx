@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -67,9 +68,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             description: site.description,
           }}
         />
-        {/* Analytics placeholder: add Google Analytics, Plausible or another script here once selected. */}
         <Header />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>

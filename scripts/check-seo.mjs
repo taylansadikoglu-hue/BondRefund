@@ -60,7 +60,7 @@ try {
   const robotsResponse = await fetch(`${baseUrl}/robots.txt`);
   ensure(robotsResponse.status === 200, "/robots.txt must return 200");
   const robotsText = await robotsResponse.text();
-  ensure(!robotsText.includes("Disallow: /"), "robots.txt must not block the whole site");
+  ensure(!/^Disallow:\s*\/$/m.test(robotsText), "robots.txt must not block the whole site");
   ensure(robotsText.includes(`Sitemap: ${canonicalBase}/sitemap.xml`), "robots.txt must include canonical sitemap URL");
 
   const sitemapResponse = await fetch(`${baseUrl}/sitemap.xml`);

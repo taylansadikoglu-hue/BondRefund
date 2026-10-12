@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/AdSlot";
 import { EmailCapture } from "@/components/EmailCapture";
+import { EditorialNote } from "@/components/EditorialNote";
 import { JsonLd } from "@/components/JsonLd";
 import { getCalculator } from "@/lib/calculators";
 import { getGuide, guides, guideFaqs, guideSections } from "@/lib/guides";
@@ -977,7 +978,7 @@ export default async function GuidePage({ params }: Params) {
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
             {upgrade?.heroBody ?? guide.description}
           </p>
-          <p className="mt-3 text-sm font-semibold text-slate-500">Published by {site.name} · General information · Page reviewed 15 September 2026</p>
+          <EditorialNote />
           <div className="mt-6 grid gap-3 md:grid-cols-3">
             {(upgrade?.quickChecks ?? defaultChecks).map((point) => (
               <div key={point} className="rounded-xl border border-[var(--line)] bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700">

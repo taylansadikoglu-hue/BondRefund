@@ -5,9 +5,7 @@ import type { CalculatorKind } from "@/lib/calculators";
 import {
   countryExperiences,
   formatMoneyForCountry,
-  type CountryCode,
 } from "@/lib/country-experience";
-import { useCountryPreference } from "@/lib/country-preference";
 
 function percent(value: number) {
   return `${(Number.isFinite(value) ? value : 0).toFixed(1)}%`;
@@ -85,8 +83,8 @@ function ResultLine({ label, value }: { label: string; value: string }) {
 }
 
 export function CalculatorClient({ kind }: { kind: CalculatorKind }) {
-  const { country, setCountry } = useCountryPreference("AU");
-  const experience = countryExperiences[country];
+  const country = "AU" as const;
+  const experience = countryExperiences.AU;
   const [state, setState] = useState(experience.areas[0] ?? "NSW");
   const [weeklyRent, setWeeklyRent] = useState(600);
   const [bondPaid, setBondPaid] = useState(2400);
@@ -232,31 +230,9 @@ export function CalculatorClient({ kind }: { kind: CalculatorKind }) {
     <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
       <form className="rounded-md border border-[var(--line)] bg-white p-5 shadow-sm">
         <div className="mb-5 rounded-xl border border-[var(--line)] bg-slate-50 p-4">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--brand-dark)]">Country</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {(Object.keys(countryExperiences) as CountryCode[]).map((code) => {
-              const active = code === country;
-              return (
-                <button
-                  key={code}
-                  className={`focus-ring rounded-full border px-4 py-2 text-sm font-bold ${
-                    active
-                      ? "border-[var(--brand)] bg-[var(--brand)] text-white"
-                      : "border-[var(--line)] bg-white text-slate-700"
-                  }`}
-                  onClick={() => {
-                    setCountry(code);
-                    setState(countryExperiences[code].areas[0] ?? "");
-                  }}
-                  type="button"
-                >
-                  {countryExperiences[code].label}
-                </button>
-              );
-            })}
-          </div>
-          <p className="mt-3 text-sm leading-6 text-slate-600">
-            Using {experience.label} terms and {experience.currency} amounts.
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--brand-dark)]">Australia · AUD</p>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            This calculator uses Australian renter terms. Check the official rules for the state or territory where the property is located.
           </p>
         </div>
         <div className="grid gap-4">

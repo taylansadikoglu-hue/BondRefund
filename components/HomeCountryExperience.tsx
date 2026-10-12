@@ -4,19 +4,15 @@ import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AdSlot } from "@/components/AdSlot";
-import { AffiliateCTA } from "@/components/AffiliateCTA";
 import { EmailCapture } from "@/components/EmailCapture";
 import { calculators } from "@/lib/calculators";
-import { countryExperiences, type CountryCode } from "@/lib/country-experience";
-import { useCountryPreference } from "@/lib/country-preference";
+import { countryExperiences } from "@/lib/country-experience";
 import { guides } from "@/lib/guides";
 import { isIndexableGuide } from "@/lib/index-policy";
 
 export function HomeCountryExperience() {
-  const { country, setCountry, ready } = useCountryPreference("AU");
-  const detected = country;
-
-  const experience = countryExperiences[country];
+  const country = "AU" as const;
+  const experience = countryExperiences.AU;
   const localGuides = useMemo(
     () => guides.filter((guide) => isIndexableGuide(guide.slug) && guide.category === "Local guides").slice(0, 6),
     [],
@@ -26,52 +22,6 @@ export function HomeCountryExperience() {
   return (
     <>
       <section className="border-b border-[var(--line)]">
-        <div className="mx-auto max-w-6xl px-4 pt-10 lg:pt-14">
-          <div className="rounded-2xl border border-[var(--line)] bg-white/95 p-4 shadow-sm md:p-5">
-            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--brand-dark)]">Pick your country</p>
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  We’re showing {experience.label} first{ready && country === detected ? " from your browser settings" : ""}. You can switch anytime.
-                </p>
-              </div>
-            </div>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
-              {(Object.keys(countryExperiences) as CountryCode[]).map((code) => {
-                const option = countryExperiences[code];
-                const active = code === country;
-                return (
-                  <button
-                    key={code}
-                    className={`focus-ring rounded-2xl border p-4 text-left transition ${
-                      active
-                        ? "border-[var(--brand)] bg-[var(--soft-green)] shadow-sm"
-                        : "border-[var(--line)] bg-white hover:border-[var(--brand)]"
-                    }`}
-                    onClick={() => setCountry(code)}
-                    type="button"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <p className="text-base font-extrabold text-slate-950">{option.label}</p>
-                      <span
-                        className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-[0.18em] ${
-                          active ? "bg-[var(--brand)] text-white" : "bg-slate-100 text-slate-600"
-                        }`}
-                      >
-                        {option.currency}
-                      </span>
-                    </div>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{option.audienceLabel}</p>
-                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-[var(--brand-dark)]">
-                      {active ? "Selected" : `Use ${option.label}`}
-                    </p>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 lg:grid-cols-[1.08fr_0.92fr] lg:py-12">
           <div>
             <p className="inline-flex rounded-full border border-emerald-200 bg-white px-3 py-1 text-sm font-bold text-[var(--brand-dark)]">
@@ -233,7 +183,6 @@ export function HomeCountryExperience() {
         <div className="grid content-start gap-5">
           <AdSlot />
           <EmailCapture />
-          <AffiliateCTA />
         </div>
       </section>
     </>

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/AdSlot";
 import { CalculatorClient } from "@/components/CalculatorClient";
 import { EmailCapture } from "@/components/EmailCapture";
+import { EditorialNote } from "@/components/EditorialNote";
 import { JsonLd } from "@/components/JsonLd";
 import { calculators, getCalculator } from "@/lib/calculators";
 import { getGuide } from "@/lib/guides";
@@ -375,6 +376,7 @@ export default async function CalculatorPage({ params }: Params) {
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
             {upgrade?.heroBody ?? calculator.description}
           </p>
+          <EditorialNote />
           <div className="mt-6 grid gap-3 md:grid-cols-3">
             {(upgrade?.introPoints ?? [
               "Fast estimate before you reply",

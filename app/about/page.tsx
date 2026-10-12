@@ -46,6 +46,15 @@ export default function AboutPage() {
         Where a situation is urgent, disputed or high value, renters should check official state or territory information and consider independent
         support.
       </p>
+      <h2>Publisher and review process</h2>
+      <p>
+        BondRefund.online is independently published in Australia. Calculator assumptions and guide claims are reviewed against official state and
+        territory tenancy sources. The core calculators, source directory and editorial policy were last reviewed on 9 October 2026.
+      </p>
+      <p>
+        The site does not publish legal conclusions. When a rule depends on location, evidence or a tribunal decision, the page directs renters to
+        the relevant authority. Readers can report unclear wording, broken links or calculation problems through the contact page.
+      </p>
     </InfoPage>
   );
 }
