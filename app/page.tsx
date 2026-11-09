@@ -118,6 +118,11 @@ export default function HomePage() {
                 title: "How to get your bond back in NSW",
                 body: "Use a simple NSW checklist before final inspection and deduction talks.",
               },
+              {
+                href: "/tools/bond-deduction-evidence-checker",
+                title: "Bond deduction evidence checker",
+                body: "List each claim, organise your records and prepare a calm request for details.",
+              },
             ].map((item) => (
               <Link key={item.href} href={item.href} className="rounded-xl border border-[var(--line)] p-5 hover:border-[var(--brand)]">
                 <h3 className="text-lg font-extrabold text-slate-950">{item.title}</h3>

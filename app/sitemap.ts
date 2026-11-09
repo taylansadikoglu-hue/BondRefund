@@ -5,7 +5,7 @@ import { isIndexableGuide } from "@/lib/index-policy";
 import { legalLinks, site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/guides", ...legalLinks.map((link) => link.href)];
+  const staticPages = ["", "/guides", "/tools/bond-deduction-evidence-checker", ...legalLinks.map((link) => link.href)];
   const calculatorPages = calculators.map((calculator) => `/calculators/${calculator.slug}`);
   const guidePages = guides.filter((guide) => isIndexableGuide(guide.slug)).map((guide) => `/guides/${guide.slug}`);
 
