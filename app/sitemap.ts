@@ -11,7 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticPages, ...calculatorPages, ...guidePages].map((path) => ({
     url: `${site.url}${path}`,
-    lastModified: new Date("2026-09-15"),
+    // Guides and the evidence checker were updated on 26 November 2026.
+    lastModified: new Date(path.startsWith("/guides/") || path.startsWith("/tools/") ? "2026-11-26" : "2026-09-15"),
     changeFrequency: path.includes("/guides/") ? "monthly" : "weekly",
     priority: path === "" ? 1 : path.includes("/calculators/") ? 0.9 : 0.7,
   }));
