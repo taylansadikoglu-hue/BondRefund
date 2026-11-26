@@ -459,134 +459,9 @@ const searchFocusedSections: Record<string, { heading: string; body: string }[]>
 };
 
 export function guideSections(guide: Guide) {
-  const focused = searchFocusedSections[guide.slug];
-  if (focused) {
-    return focused;
-  }
-
-  if (guide.slug.includes("break-lease")) {
-    return [
-      {
-        heading: "Quick estimate",
-        body: `${guide.description} Start with weekly rent, expected vacant weeks, advertising or reletting items, and any known fixed amounts.`,
-      },
-      {
-        heading: "Costs to separate",
-        body: "Separate rent exposure from once-off fees. Rent exposure usually depends on timing, while advertising, reletting, cleaning or administration items should be checked against records and invoices.",
-      },
-      {
-        heading: "Evidence to ask for",
-        body: "Ask for itemised amounts, lease references, dates, invoices, advertising records and evidence of efforts to find a replacement renter where relevant.",
-      },
-      {
-        heading: "Use the calculator before agreeing",
-        body: "Run the related break lease calculator, compare the result with the claimed amount, and keep the estimate with your lease, emails and condition records.",
-      },
-    ];
-  }
-
-  if (guide.slug.includes("cleaning") || guide.slug.includes("clean")) {
-    return [
-      {
-        heading: "Quick estimate",
-        body: `${guide.description} The biggest cost drivers are property size, bathrooms, kitchen condition, carpet, furnished rooms, windows, balconies and urgency.`,
-      },
-      {
-        heading: "Quote checks",
-        body: "Before booking or accepting a deduction, check whether carpet, oven, windows, blinds, balconies, furnished items, GST and return cleans are included.",
-      },
-      {
-        heading: "Bond deduction checks",
-        body: "If cleaning is claimed from bond, ask for photos, an itemised invoice or quote, and a clear link between the work claimed and the exit condition of the property.",
-      },
-      {
-        heading: "Use the calculator",
-        body: "Use the end-of-lease cleaning calculator to create a planning range, then compare each quote against the same rooms and inclusions.",
-      },
-    ];
-  }
-
-  if (guide.slug.includes("rent") || guide.slug.includes("afford")) {
-    return [
-      {
-        heading: "Quick estimate",
-        body: `${guide.description} Convert weekly rent into annual rent, then compare it with gross income and your real take-home budget.`,
-      },
-      {
-        heading: "What the percentage means",
-        body: "A 30% rent-to-income benchmark is a useful warning light, not a rule. Debt, transport, dependants, savings goals and irregular income can change what feels affordable.",
-      },
-      {
-        heading: "Upfront costs matter",
-        body: "Bond, rent in advance, removalists, end-of-lease cleaning, utility setup and rent overlap can make a rental hard to afford even when the weekly rent looks manageable.",
-      },
-      {
-        heading: "Use the calculator",
-        body: "Use the rental affordability calculator to compare weekly rent with annual income, then add a moving cost estimate before applying.",
-      },
-    ];
-  }
-
-  if (guide.slug.includes("moving") || guide.slug.includes("removalist")) {
-    return [
-      {
-        heading: "Quick estimate",
-        body: `${guide.description} Moving costs usually depend on bedrooms, truck access, stairs or lifts, travel time, removalist hours, packing and storage.`,
-      },
-      {
-        heading: "Compare quotes properly",
-        body: "Ask whether the quote includes call-out time, fuel, GST, stairs, heavy items, insurance, packing materials and waiting time before comparing movers.",
-      },
-      {
-        heading: "Budget beyond the truck",
-        body: "Renters should also allow for bond, rent in advance, cleaning, utility changes, overlap between homes and small replacement items after moving.",
-      },
-      {
-        heading: "Use the calculator",
-        body: "Use the moving cost calculator to test bedrooms, hours and extras, then keep written quotes so you can compare the same scope of work.",
-      },
-    ];
-  }
-
-  if (guide.location) {
-    return [
-      {
-        heading: `${guide.location} renter snapshot`,
-        body: `${guide.description} Local rent, moving and cleaning costs can vary by suburb, property size, access, parking and timing, so use the calculators as planning tools rather than fixed quotes. The point is to help you spot the likely cost before you reply to an agent or lock in a service.`,
-      },
-      {
-        heading: "What to check locally",
-        body: `For a ${guide.location} rental, keep entry and exit condition records, dated photos, cleaning receipts, emails and any quotes in one folder. Compare any claimed cost with the property condition and the evidence you hold.`,
-      },
-      {
-        heading: "Cost planning tips",
-        body: "Run the related calculator, then add a buffer for timing, access, urgent bookings and extra services. Ask providers for itemised quotes so you can understand what is included before you commit.",
-      },
-      {
-        heading: "Important limits",
-        body: "This page is written for search and planning, not legal advice. Tenancy processes and outcomes can depend on state rules, documents, evidence and the facts of your rental.",
-      },
-    ];
-  }
-
-  return [
-    {
-      heading: "Quick summary",
-      body: `${guide.description} Use this guide as a starting point, then check your lease, condition report and state or territory tenancy authority for your situation. If money is being claimed, a simple written timeline and clear photos usually help more than long arguments.`,
-    },
-    {
-      heading: "What to gather",
-      body: "Keep your lease, bond receipt, entry condition report, exit photos, repair invoices, cleaning receipts, emails and text messages in one folder. Clear records make it easier to compare claims with the actual condition of the property.",
-    },
-    {
-      heading: "Useful next steps",
-      body: "Write down the issue, the amount involved and the evidence on each side. Ask for itemised costs where money is being claimed. Avoid agreeing to deductions until you understand what they relate to.",
-    },
-    {
-      heading: "When to get extra help",
-      body: "If the amount is significant, the facts are disputed, or you feel pressured, contact your state or territory tenancy information service. This website provides general information only and is not a substitute for advice about your circumstances.",
-    },
-  ];
+  // Only page-specific sections. Shared category text used to be appended here,
+  // which made most guides repeat the same paragraphs.
+  return searchFocusedSections[guide.slug] ?? [];
 }
 
 export function guideFaqs(guide: Guide) {
@@ -642,14 +517,5 @@ export function guideFaqs(guide: Guide) {
     ];
   }
 
-  return [
-    {
-      question: `Is ${guide.title} legal advice?`,
-      answer: "No. It is general information to help renters organise numbers and evidence before checking official sources or getting advice.",
-    },
-    {
-      question: "Which calculator should I use next?",
-      answer: "Use the related calculator shown on this page to turn the guide into a simple estimate you can compare with quotes, deductions or moving budgets.",
-    },
-  ];
+  return [];
 }
