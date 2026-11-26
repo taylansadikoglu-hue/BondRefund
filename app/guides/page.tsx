@@ -16,7 +16,7 @@ export default function GuidesIndexPage() {
   const featuredGuides = [
     "how-to-get-your-bond-back-nsw",
     "how-long-does-bond-refund-take",
-    "sydney-bond-refund-guide",
+    "fair-wear-and-tear-australia",
     "sydney-moving-costs",
   ]
     .map((slug) => guides.find((guide) => guide.slug === slug))
@@ -31,12 +31,12 @@ export default function GuidesIndexPage() {
     {
       title: "Moving and cost planning",
       body: "Pages for moving quotes, budget checks, cleaning costs and the real cost of changing property.",
-      slugs: ["moving-costs-australia", "sydney-moving-costs", "brisbane-moving-costs", "end-of-lease-cleaning-checklist"],
+      slugs: ["moving-costs-australia", "sydney-moving-costs", "moving-house-checklist", "end-of-lease-cleaning-checklist"],
     },
     {
       title: "Rent pressure and lease exits",
       body: "Pages for rent increases, break lease costs and deciding whether staying or moving is the better option.",
-      slugs: ["rent-affordability-guide", "melbourne-rent-increase-guide", "brisbane-break-lease-costs", "break-lease-costs-australia"],
+      slugs: ["rent-affordability-guide", "rent-increase-rules-australia", "brisbane-break-lease-costs", "break-lease-costs-australia"],
     },
   ].map((group) => ({
     ...group,

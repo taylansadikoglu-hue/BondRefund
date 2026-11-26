@@ -15,20 +15,13 @@ export const indexableGuideSlugs = [
   "rent-affordability-guide",
   "how-much-rent-can-i-afford-australia",
   "sydney-end-of-lease-cleaning-costs",
-  "brisbane-moving-costs",
   "how-to-get-your-bond-back-nsw",
   "how-to-get-your-bond-back-vic",
   "how-to-get-your-bond-back-qld",
   "how-long-does-bond-refund-take",
-  "sydney-bond-refund-guide",
   "sydney-rent-increase-guide",
-  "melbourne-rent-increase-guide",
-  "melbourne-break-lease-costs",
   "brisbane-break-lease-costs",
-  "melbourne-moving-costs",
   "moving-house-checklist",
-  "melbourne-end-of-lease-cleaning-costs",
-  "brisbane-end-of-lease-cleaning-costs",
   "moving-costs-australia"
 ] as const;
 

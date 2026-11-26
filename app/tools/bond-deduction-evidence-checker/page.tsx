@@ -8,7 +8,8 @@ export const metadata: Metadata = {
   description: "List proposed bond deductions, organise the records you have and prepare a calm request for itemised details. Free, private, and built for Australian renters.",
   alternates: { canonical: "/tools/bond-deduction-evidence-checker" },
   robots: { index: true, follow: true },
-  openGraph: { title: "Bond Deduction Evidence Checker | BondRefund.online", description: "A practical checklist to organise bond deduction details and records before you reply.", url: `${site.url}/tools/bond-deduction-evidence-checker`, type: "website" },
+  openGraph: { title: "Bond Deduction Evidence Checker | BondRefund.online", description: "List each bond deduction, see what proof to ask for, and copy a calm reply. Free for Australian renters.", url: `${site.url}/tools/bond-deduction-evidence-checker`, type: "website" },
+  twitter: { card: "summary", title: "Bond Deduction Evidence Checker | BondRefund.online", description: "List each bond deduction, see what proof to ask for, and copy a calm reply. Free for Australian renters." },
 };
 
 export default function BondDeductionEvidenceCheckerPage() {
@@ -26,7 +27,7 @@ export default function BondDeductionEvidenceCheckerPage() {
     <section className="mx-auto max-w-6xl px-4 pb-12">
       <div className="grid gap-5 rounded-2xl border border-[var(--line)] bg-white p-5 shadow-sm sm:grid-cols-2 sm:p-7">
         <div><h2 className="text-xl font-extrabold text-slate-950">What this tool can—and cannot—do</h2><p className="mt-2 text-sm leading-7 text-slate-700">It helps you organise information and ask for an itemised explanation. It cannot tell you whether a deduction is lawful, predict a tribunal decision, or replace advice from your local tenancy service.</p></div>
-        <div><h2 className="text-xl font-extrabold text-slate-950">A useful next step</h2><p className="mt-2 text-sm leading-7 text-slate-700">Compare the claimed amount with the bond you paid and see the possible balance. Then check your local authority’s process and dates.</p><Link className="mt-3 inline-flex font-bold text-[var(--brand-dark)] underline" href="/calculators/bond-refund-calculator">Open the bond refund calculator →</Link></div>
+        <div><h2 className="text-xl font-extrabold text-slate-950">A useful next step</h2><p className="mt-2 text-sm leading-7 text-slate-700">If you are waiting on the money, see how long each state usually takes and what happens if one side disputes the claim.</p><Link className="mt-3 inline-flex font-bold text-[var(--brand-dark)] underline" href="/guides/how-long-does-bond-refund-take">Bond refund timing by state →</Link></div>
       </div>
     </section>
   </main>;

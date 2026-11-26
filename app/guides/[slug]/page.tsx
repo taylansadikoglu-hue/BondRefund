@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdSlot } from "@/components/AdSlot";
+import { BondTimelineTable } from "@/components/BondTimelineTable";
 import { EmailCapture } from "@/components/EmailCapture";
 import { EditorialNote } from "@/components/EditorialNote";
 import { JsonLd } from "@/components/JsonLd";
@@ -25,6 +26,7 @@ const guideUpgrades: Record<
     extraLinks: { href: string; label: string }[];
     officialFacts?: { label: string; body: string }[];
     example?: { title: string; intro: string; lines: string[] };
+    table?: { title: string; intro: string; columns: [string, string, string, string]; rows: [string, string, string, string][] };
   }
 > = {
   "sydney-moving-costs": {
@@ -324,8 +326,22 @@ const guideUpgrades: Record<
     extraLinks: [
       { href: "/guides/normal-wear-and-tear-examples", label: "See practical examples" },
       { href: "/calculators/bond-refund-calculator", label: "Estimate the refund impact" },
-      { href: "/guides/rental-bond-dispute-guide", label: "Prepare a deduction response" },
+      { href: "/tools/bond-deduction-evidence-checker", label: "Check a deduction claim" },
     ],
+    table: {
+      title: "Common items: what usually counts as wear, and what may be damage",
+      intro:
+        "These are typical patterns, not rules. The outcome depends on the item's age, its condition when you moved in, how long you lived there and what actually happened. Use the last column to decide what proof to find.",
+      columns: ["Item", "Often treated as fair wear and tear", "May be treated as damage", "Proof that helps"],
+      rows: [
+        ["Carpet", "Flattened or worn paths in walkways, fading from sunlight, general wear after years of use", "Burns, large stains, pet damage, rips or holes", "Entry report notes and photos, carpet age, final photos of the same areas"],
+        ["Walls and paint", "Light scuffs, minor marks from furniture, fading or ageing paint", "Holes, large marks, crayon or unapproved paint colours", "Entry photos, the paint's age, and which wall or area is actually claimed"],
+        ["Curtains and blinds", "Fading or fraying from sun and normal use", "Tears, broken cords from misuse, missing parts", "Entry condition, item age, close-up final photos"],
+        ["Floors and tiles", "Light surface scratches from normal living, worn polish", "Deep gouges, cracked tiles from impact, water damage from a spill left unattended", "Entry report, dated photos, any repair requests you made during the tenancy"],
+        ["Fixtures and appliances", "Parts that wear out with age, such as seals, worn handles or a tired oven element", "Breakage from misuse, missing items, a cracked cooktop", "Maintenance requests, receipts and the item's age if known"],
+        ["Garden and outdoors", "Seasonal plant loss, natural ageing of lawn and paving", "Dead lawn or plants where the lease made you responsible for watering, rubbish left behind", "The lease's garden clause, entry photos and final photos"],
+      ],
+    },
   },
   "end-of-lease-cleaning-checklist": {
     eyebrow: "Room-by-room cleaning guide",
@@ -603,25 +619,35 @@ const guideUpgrades: Record<
   },
   "how-long-does-bond-refund-take": {
     eyebrow: "Bond timeline guide",
-    heroTitle: "How long does a bond refund usually take?",
+    heroTitle: "How long does a bond refund take?",
     heroBody:
-      "This page gives renters a simple way to think about the bond refund timeline, what can slow it down, and what to do if the process starts dragging out.",
+      "If everyone agrees on the amount, most bonds are paid within a few business days. If only one side lodges the claim, the other side usually gets 14 days to respond first, which is why many refunds take about two weeks. A dispute adds more time. The table below shows the official timing for each state and territory.",
     quickChecks: [
-      "Simple refunds can move quickly when both sides agree",
-      "Disputes, missing evidence or slow replies usually add time",
-      "A clear paper trail often speeds up the next step",
+      "Agreed claims are the fastest: often one to three business days",
+      "A claim lodged by one side usually waits 14 days for a reply",
+      "A dispute holds the money until it is resolved or decided",
     ],
-    actionTitle: "If it feels slow",
+    actionTitle: "How to avoid the slow path",
     actions: [
-      "Check whether both sides have actually agreed on the deduction or refund amount.",
-      "Put your photos, receipts, emails and condition reports into one folder before chasing an update.",
-      "Ask for a written breakdown if money is being kept and the reason is still unclear.",
+      "Ask the agent or landlord to agree the amount in writing before anyone lodges the claim.",
+      "If you lodge first, note the date. That is when the response period starts.",
+      "If money is held back, ask for an itemised list with invoices so you can accept or dispute each item quickly.",
     ],
     extraLinks: [
+      { href: "/tools/bond-deduction-evidence-checker", label: "Check a deduction claim" },
       { href: "/calculators/bond-refund-calculator", label: "Estimate what should come back" },
       { href: "/guides/rental-bond-dispute-guide", label: "Read the dispute guide" },
-      { href: "/guides/rental-bond-refund-letter-template", label: "Use the refund letter template" },
     ],
+    example: {
+      title: "Example: why the same bond can take two days or three weeks",
+      intro:
+        "Two renters in Queensland move out on the same day. The first agrees the full refund with the agent, and the agent lodges it. The second lodges a claim on their own because the agent has not replied. The first refund is processed the day it is received. The second waits for the 14-day response period, and if the agent disputes it, it goes into dispute resolution.",
+      lines: [
+        "Fastest: both sides agree, then one lodges the claim.",
+        "Slower: one side lodges and the other gets 14 days to reply.",
+        "Slowest: the claim is disputed and needs dispute resolution or a tribunal.",
+      ],
+    },
   },
   "sydney-bond-refund-guide": {
     eyebrow: "Sydney renter guide",
@@ -718,7 +744,7 @@ const guideUpgrades: Record<
     extraLinks: [
       { href: "/calculators/rent-increase-calculator", label: "Compare the rent increase" },
       { href: "/calculators/rental-affordability-calculator", label: "Check affordability" },
-      { href: "/guides/melbourne-moving-costs", label: "See Melbourne moving costs" },
+      { href: "/guides/moving-costs-australia", label: "See Melbourne moving costs" },
     ],
   },
   "melbourne-moving-costs": {
@@ -739,7 +765,7 @@ const guideUpgrades: Record<
     ],
     extraLinks: [
       { href: "/calculators/moving-cost-calculator", label: "Estimate the full move" },
-      { href: "/guides/melbourne-end-of-lease-cleaning-costs", label: "Plan the final clean" },
+      { href: "/calculators/end-of-lease-cleaning-calculator", label: "Plan the final clean" },
       { href: "/calculators/rental-affordability-calculator", label: "Check the new rent" },
     ],
   },
@@ -957,7 +983,7 @@ export default async function GuidePage({ params }: Params) {
     <main className="mx-auto grid max-w-6xl gap-8 px-4 py-10 lg:grid-cols-[1fr_320px]">
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
-      <JsonLd data={faqSchema} />
+      {faqs.length ? <JsonLd data={faqSchema} /> : null}
       <article>
         <nav className="text-sm font-semibold text-slate-500">
           <Link className="focus-ring hover:text-[var(--brand)]" href="/">
@@ -1065,6 +1091,38 @@ export default async function GuidePage({ params }: Params) {
           </section>
         ) : null}
 
+        {guide.slug === "how-long-does-bond-refund-take" ? <BondTimelineTable /> : null}
+
+        {upgrade?.table ? (
+          <section className="mt-8 rounded-2xl border border-[var(--line)] bg-white p-6 shadow-sm">
+            <h2 className="text-2xl font-extrabold text-slate-950">{upgrade.table.title}</h2>
+            <p className="mt-3 max-w-3xl leading-7 text-slate-700">{upgrade.table.intro}</p>
+            <div className="mt-5 overflow-x-auto">
+              <table className="w-full min-w-[640px] border-collapse text-left text-sm leading-6 text-slate-700">
+                <thead>
+                  <tr>
+                    {upgrade.table.columns.map((column) => (
+                      <th key={column} scope="col" className="border-b border-slate-300 px-3 py-2 font-bold text-slate-900">
+                        {column}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {upgrade.table.rows.map((row) => (
+                    <tr key={row[0]} className="align-top">
+                      <th scope="row" className="border-b border-slate-200 px-3 py-3 font-bold text-slate-900">{row[0]}</th>
+                      <td className="border-b border-slate-200 px-3 py-3">{row[1]}</td>
+                      <td className="border-b border-slate-200 px-3 py-3">{row[2]}</td>
+                      <td className="border-b border-slate-200 px-3 py-3">{row[3]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        ) : null}
+
         {upgrade?.example ? (
           <section className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6">
             <p className="text-sm font-bold uppercase tracking-wide text-amber-800">Practical example</p>
@@ -1081,8 +1139,6 @@ export default async function GuidePage({ params }: Params) {
         ) : null}
 
         <section className="content-prose mt-8 rounded-md border border-[var(--line)] bg-white p-6">
-          <h2>Quick answer</h2>
-          <p>{guide.description}</p>
           {guideSections(guide).map((section) => (
             <div key={section.heading}>
               <h2>{section.heading}</h2>
@@ -1122,15 +1178,13 @@ export default async function GuidePage({ params }: Params) {
               );
             })}
           </ul>
-          <h2>Frequently asked questions</h2>
+          {faqs.length ? <h2>Frequently asked questions</h2> : null}
           {faqs.map((faq) => (
             <div key={faq.question}>
               <h3>{faq.question}</h3>
               <p>{faq.answer}</p>
             </div>
           ))}
-          <h2>Disclaimer</h2>
-          <p>{site.disclaimer}</p>
         </section>
         <div className="mt-8">
           <AdSlot label="Sponsored content" format="fluid" />

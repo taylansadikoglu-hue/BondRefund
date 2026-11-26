@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     locale: "en_AU",
     type: "website",
   },
+  // No site-wide title or description here: X and others then read each page's own
+  // Open Graph title and description instead of showing the homepage text everywhere.
   twitter: {
-    card: "summary_large_image",
-    title: "BondRefund.online",
-    description: site.description,
+    card: "summary",
   },
 };
 
